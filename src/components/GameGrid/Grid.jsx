@@ -14,7 +14,7 @@ function Grid() {
     return (
         <>
             <div 
-                className='col-10 col-sm-8'
+                className='d-flex flex-column justify-content-center align-items-center w-75'
             >
                 <div
                     className='grid-container'
