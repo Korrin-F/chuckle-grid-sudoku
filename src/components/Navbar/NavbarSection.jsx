@@ -1,15 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./Navbar.css";
+// import "./Navbar.css";
 
 function Navbar() {
   return (
     <div className="container-fluid mb-4">
       <nav className="navbar navbar-expand-lg customNav">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/game">Game</Link>
+          </li>
+          <li>
+            <Link to="/highscores">Highscores</Link>
+          </li>
+        </ul>
+
+
+          {/* <NavLink className="navbar-brand" to="/">
             Sudoku
-          </Link>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,20 +37,20 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <NavLink className="nav-link active" aria-current="page" to="/">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/game">
+                <NavLink className="nav-link active" aria-current="page" to="/game">
                   Game
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/highscores">
+                <NavLink className="nav-link" to="/highscores">
                   High Scores
-                </Link>
-              </li>
+                </NavLink>
+              </li> */}
            
               {/* <li className="nav-item">
                 <Link className="nav-link" to="/Contact">
@@ -80,15 +93,15 @@ function Navbar() {
                   </li>
                 </ul>
               </li> */}
-            </ul>
+            {/* </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link className="btn btn-primary btn-lg navCTA" to="mailto:cazbella@myyahoo.com" role="button">
+                <NavLink className="btn btn-primary btn-lg navCTA" to="mailto:cazbella@myyahoo.com" role="button">
                   Email Me
-                </Link>
+                </NavLink>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>
