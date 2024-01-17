@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavbarSection from '../src/components/Navbar/NavbarSection';
 import FooterSection from '../src/components/Footer/FooterSection';
 import Home from './pages/Home/Home';
@@ -12,11 +13,20 @@ function App() {
 
   return (
     <>
-      <NavbarSection />
-      <Home />
+      
+      <Router>
+        <NavbarSection />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/highscores" element={<Highscores />} />
+        </Routes>
+      </Router>
+      {/* <Home />
       <Game />
-      <Highscores />
+      <Highscores /> */}
       <FooterSection />
+
     </>
   )
 }
