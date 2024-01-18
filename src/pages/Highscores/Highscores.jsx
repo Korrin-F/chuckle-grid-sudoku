@@ -6,7 +6,7 @@ function HighScores() {
 
 
   return (
-    <Container className="mt-5 flex-grow-1">
+    <Container  className="mt-5 flex-grow-1">
       {/* High Scores Table */}
       <Table striped >
         <thead>
@@ -17,8 +17,8 @@ function HighScores() {
         </thead>
         <tbody>
           {/* maybe dynamically generate rows based on highScores array/info */}
-          {highScores.map((score) => (
-            <tr key={score.id}>
+          {highScores.map((score, index) => (
+            <tr key={index}>
               <td>{score.name}</td>
               <td>{score.score}</td>
             </tr>

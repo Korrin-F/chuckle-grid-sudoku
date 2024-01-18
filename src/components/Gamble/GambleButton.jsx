@@ -6,7 +6,7 @@ function GambleButton(props) {
 
   return (
     <Button
-    className="m-2"
+      className="m-2"
       variant="danger"
       onClick={onClick}
       size="lg"
