@@ -26,4 +26,3 @@ function InstructionsBTN() {
 
 export default InstructionsBTN;
 
-// data-toggle="modal" data-target="#exampleModal"

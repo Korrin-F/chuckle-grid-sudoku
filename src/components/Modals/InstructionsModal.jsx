@@ -5,18 +5,17 @@ function InstructionsModal(props) {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" className="close" onClick={closeModal} aria-label="Close">
+                        <h5 className="modal-title" id="instrucationsModalLabel">Sudoku Instructions</h5>
+                        <button type="button" className="close btn" onClick={closeModal} aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div className="modal-body">
                         {/* ... */}
                     </div>
-                    <div className="modal-footer">
+                    {/* <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={closeModal}>Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
