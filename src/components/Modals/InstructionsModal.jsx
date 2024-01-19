@@ -1,3 +1,7 @@
+import InstructionsText from './InstructionsText';
+import SudokuInstructions from './InstructionsText';
+
+
 function InstructionsModal(props) {
     const {closeModal} = props;
     return (
@@ -11,7 +15,7 @@ function InstructionsModal(props) {
                         </button>
                     </div>
                     <div className="modal-body">
-                        {/* ... */}
+                        <InstructionsText />
                     </div>
                     {/* <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={closeModal}>Close</button>
