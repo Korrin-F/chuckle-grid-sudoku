@@ -6,7 +6,7 @@ import MotivationButton from "../../components/Giphy/GameMotivation"
 
 function UnderGameBoard() {
   return (
-        <Container className="mt-4">
+        <Container className="mt-4 mb-5">
             <Row className="justify-content-evenly">
                 <Col className='d-flex flex-col justify-content-center col-6'>
                     <GambleButton />
