@@ -3,6 +3,7 @@ import GridSection from "../../components/GameGrid/GridSection";
 import UnderGameBoard from "../../components/GameSections/UnderGameBoard";
 import AboveGameBoard from '../../components/GameSections/AboveGameBoard';
 
+
 function Game() {
   return (
     <Container  className="mt-2 flex-grow-1">
@@ -12,4 +13,5 @@ function Game() {
     </Container>
     )
 }
+
 export default Game;
