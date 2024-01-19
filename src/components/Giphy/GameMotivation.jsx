@@ -8,7 +8,7 @@ const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
       <div className="modal-content">
         <div className="modal-header">
           <h5 className="modal-title">Motivation Modal</h5>
-          <button type="button" className="close" onClick={closeModal} aria-label="Close">
+          <button type="button" className="close btn" onClick={closeModal} aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

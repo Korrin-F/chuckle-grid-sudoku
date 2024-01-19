@@ -10,17 +10,15 @@ import { Link, useNavigate } from 'react-router-dom';
  
 
 function HomeForm() {
-    const [searched, setSearched] = useState('');
-    const [difficulty, setDifficulty] = useState('1');
-    const navigate = useNavigate();
+    const [searched, setSearched] = useState('cats'); //default cats
+    const [difficulty, setDifficulty] = useState('1'); //default 1 (easy)
+    const navigate = useNavigate(); //for navigation
 
     const handleDifficultyChange = (event) => {
-        event.preventDefault();
         setDifficulty(event.target.value);
     }
 
     const handleTextChange = (event) => {
-        event.preventDefault();
         setSearched(event.target.value);
     }
     const handleFormSubmit = (event) => {
@@ -31,11 +29,11 @@ function HomeForm() {
         //save to local storage
         localStorage.setItem('motivation', searched);
         localStorage.setItem('difficulty', difficulty, () => {
-            setSearched('');
+            //reset to defaults
+            setSearched('cats');
             setDifficulty('1');
         });
         //go to game page
-        // window.location.href = "/game";
         navigate('/game');
 
 
@@ -51,7 +49,6 @@ function HomeForm() {
                         <EnterMotivation handleTextChange={handleTextChange} />
                         <SubmitButton handleFormSubmit={handleFormSubmit}/>
                     </Form>
-                    {/* <Link to="/game" /> */}
                 </Column>
             </Row>
         </Container>

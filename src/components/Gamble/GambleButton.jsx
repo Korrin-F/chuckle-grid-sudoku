@@ -2,13 +2,13 @@ import { Button } from "react-bootstrap";
 
 
 function GambleButton(props) {
-    const {onClick} = props;
+    const {handleClick} = props;
 
   return (
     <Button
       className="m-2"
       variant="danger"
-      onClick={onClick}
+      onClick={handleClick}
       size="lg"
     >
       Gamble
