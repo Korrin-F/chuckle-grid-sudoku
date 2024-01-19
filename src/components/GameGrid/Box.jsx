@@ -25,6 +25,7 @@ function Box(props) {
                     <Cell
                         key={index}
                         id={letter+number}
+                        value={props.numbers[index]}
                     />
                 ))}
             </div>

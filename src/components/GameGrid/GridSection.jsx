@@ -1,6 +1,7 @@
-import Grid from "./Grid"
+import Grid from "./Grid";
 
-function GridSection() {
+function GridSection(props) {
+
     return (
         <section
             className='container-fluid'
@@ -10,7 +11,7 @@ function GridSection() {
                 className='row justify-content-center text-center my-3'
                 id='grid-row'
             >
-                <Grid />
+                <Grid unsolvedDataSudoku = {props.unsolvedDataSudoku}/>
             </div>
         </section>
     )
