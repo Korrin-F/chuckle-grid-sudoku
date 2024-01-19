@@ -1,5 +1,5 @@
 import React from 'react';
-import SetMotivation from '../../components/Giphy/SetMotivation';
+import SetMotivation from '../Giphy/SetMotivation';
 
 function HomeTemp(props){
   return (
