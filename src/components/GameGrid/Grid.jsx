@@ -44,12 +44,12 @@ function GameApi() {
     sudokuApi();
   }, []);
 
-  // Return unsolvedDataSudoku or any other data you need in the GameApi component
+  console.log(unsolvedDataSudoku);
   return unsolvedDataSudoku;
 }
 
 function Grid() {
-  const unsolvedDataSudoku = GameApi(); // Call the GameApi function to get the data
+  const unsolvedDataSudoku = GameApi();
 
   if (unsolvedDataSudoku.length === 0) {
     return null;
