@@ -1,33 +1,16 @@
-import React from 'react';
-import SetMotivation from '../../components/Giphy/SetMotivation';
+import HomeTemp from "../../components/HomeSection/HomeTemp";
+import Container from "react-bootstrap/Container";
+import Form from "../../components/HomeSection/HomeForm";
+import HomeHeader from "../../components/HomeSection/HomeHeader";
 
-const Home = (props) => {
+function Home(props){
   return (
-    <div className="container">
-      <div className="text-center mt-5">
-        <h1>Welcome to Sudoku!</h1>
-       
-
-        <div className="mt-3">
-          <button type="button" className="btn btn-primary mr-2">
-            Easy
-          </button>
-          <button type="button" className="btn btn-warning mr-2">
-            Medium
-          </button>
-          <button type="button" className="btn btn-danger">
-            Hard
-          </button>
-          <SetMotivation motivation={props.motivation} setMotivation={props.setMotivation} />
-        </div>
-      </div>
-      <div className="text-center mt-4">
-        <button type="button" className="btn btn-lg btn-success">
-          Play
-        </button>
-      </div>
-      <br />
-    </div>
+    <>
+    <Container  className="mt-5 flex-grow-1">
+        <HomeHeader />
+        <Form />
+    </Container> 
+    </>
   );
 };
 

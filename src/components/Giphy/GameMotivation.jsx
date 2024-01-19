@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
 
 const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
   <div className={`modal fade ${showModal ? 'show' : ''}`} id="motivationModal" tabIndex={-1} role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
@@ -7,7 +8,7 @@ const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
       <div className="modal-content">
         <div className="modal-header">
           <h5 className="modal-title">Motivation Modal</h5>
-          <button type="button" className="close" onClick={closeModal} aria-label="Close">
+          <button type="button" className="close btn" onClick={closeModal} aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -69,9 +70,18 @@ const MotivationButton = ({ setMotivation, motivation }) => {
 
   return (
     <>
-      <button type="button" className="btn btn-primary" onClick={handleMotivateClick}>
+      <Button 
+      className="m-2"
+      variant="success"
+      onClick={handleMotivateClick}
+      size="lg"
+      >
         Motivate Me
-      </button>
+      </Button>
+
+      {/* <button type="button" className="btn btn-primary" onClick={handleMotivateClick}>
+        Motivate Me
+      </button> */}
 
       {/* Render MotivationModal based on showModal state */}
       <MotivationModal
