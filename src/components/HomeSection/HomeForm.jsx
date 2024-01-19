@@ -6,7 +6,7 @@ import ChooseDifficulty from './ChooseDifficulty';
 import EnterMotivation from './EnterMotivation';
 import { useState } from 'react';
 import SubmitButton from './SubmitButton';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
  
 
 function HomeForm() {
