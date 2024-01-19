@@ -22,9 +22,8 @@ function Cell(props) {
         <input
             className='grid-item'
             type='text'
-            placeholder={id}
             id={id}
-            value={inputValue}
+            value={inputValue || undefined}
             maxLength='1'
             size='1'
             onChange={handleInputChange}
