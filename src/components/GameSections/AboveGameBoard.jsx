@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Score from "./Score";
+import EndGameButton from './EndGameButton';
 
 
 function AboveGameBoard() {
@@ -14,6 +15,7 @@ function AboveGameBoard() {
                 </Col>
                 <Col className='d-flex flex-col justify-content-end col-12'>
                     <SolutionButton />
+                    <EndGameButton />
                 </Col>
             </Row>
         </Container>
