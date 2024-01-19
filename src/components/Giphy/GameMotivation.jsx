@@ -39,9 +39,8 @@ const MotivationButton = ({ setMotivation, motivation }) => {
       // Fetch gif based on searchTerm
       const response = await axios.get(
 
-        `https://api.giphy.com/v1/gifs/random?api_key=UhkYJx2RFVlOvd7Mk31DVgGjPf8gHF3b&tag=cats&rating=g`
 
-        // `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${APIKey}&limit=1&offset=5&rating=g&lang=en`
+        `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${APIKey}&limit=1&offset=5&rating=g&lang=en`
       );
       const gifData = response.data.data[0];
       setGifUrl(gifData.images.original.url);
