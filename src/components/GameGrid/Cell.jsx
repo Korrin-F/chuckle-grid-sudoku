@@ -9,8 +9,8 @@ const style = {
 
 
 function Cell(props) {
-    const {id} = props;
-    const [inputValue, setInputValue] = useState("");
+    const {id, value} = props;
+    const [inputValue, setInputValue] = useState(value);
     const handleInputChange = (event) => {
         // Ensure that only one digit is entered
     const newInputValue = event.target.value.slice(0, 1);
