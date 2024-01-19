@@ -8,7 +8,7 @@ import EndGameButton from './EndGameButton';
 
 function AboveGameBoard() {
   return (
-        <Container className="mt-4">
+        <Container className="mt-4 mb-3">
             <Row className="justify-content-end">
                 <Col className='d-flex flex-col justify-content-end col-12'>
                     <Score score="15" />

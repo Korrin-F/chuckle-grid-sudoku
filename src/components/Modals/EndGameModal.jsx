@@ -1,10 +1,8 @@
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import SubmitButton from '../HomeSection/SubmitButton';
 import SaveName from '../GameSections/SaveName';
-import highscores from '../../data/highscores.json';
 import { useState } from 'react';
 
 function EndGameModal(props) {

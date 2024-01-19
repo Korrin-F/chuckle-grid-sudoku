@@ -23,7 +23,7 @@ function Cell(props) {
             className='grid-item'
             type='text'
             id={id}
-            value={inputValue || undefined}
+            value={inputValue || ""}
             maxLength='1'
             size='1'
             onChange={handleInputChange}
