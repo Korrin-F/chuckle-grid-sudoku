@@ -16,7 +16,7 @@ function AboveGameBoard(props) {
                 </Col>
                 <Col className='d-flex flex-col justify-content-end col-12'>
                     <SolutionButton />
-                    <EndGameButton />
+                    <EndGameButton score={score}/>
                 </Col>
             </Row>
         </Container>

@@ -1,8 +1,8 @@
 import Form from 'react-bootstrap/Form';
 
 function SaveName(props) {
-    const {handleTextChange} = props;
-    const score = 100; //get this from local storage
+    const {handleTextChange, score} = props;
+
     return (
         <Form.Group className="mb-3" controlId="savename">
             <Form.Label><h4>Your Score is <span>{score}</span>!</h4></Form.Label>
