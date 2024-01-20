@@ -16,6 +16,7 @@ const boxes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 function NewGrid(props) {
   const { updateScore } = props;
   const [unsolvedDataSudoku, setUnsolvedDataSudoku] = useState([]);
+  const temporarySolutionsArray = [[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9]];
   const [apiCalled, setApiCalled] = useState(false);
   const storedDifficulty = localStorage.getItem("difficulty");
 
@@ -74,7 +75,7 @@ function NewGrid(props) {
         // update the score in the game
         updateScore(-(starterScore));
         // temporary local storage that should be replaced with the actual solutions array from the API
-        const temporarySolutionsArray = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,8,0,0,0,0,0]]
+
         localStorage.setItem("solutions", JSON.stringify(temporarySolutionsArray));
       }
   }, [apiCalled]);
@@ -99,9 +100,14 @@ function NewGrid(props) {
                 key={index}
                 letter={box}
                 numbers={[
-                  unsolvedDataSudoku[x][y], unsolvedDataSudoku[x][y + 1], unsolvedDataSudoku[x][y + 2],
-                  unsolvedDataSudoku[x + 1][y], unsolvedDataSudoku[x + 1][y + 1], unsolvedDataSudoku[x + 1][y + 2],
-                  unsolvedDataSudoku[x + 2][y], unsolvedDataSudoku[x + 2][y + 1], unsolvedDataSudoku[x + 2][y + 2],
+                    unsolvedDataSudoku[x][y], unsolvedDataSudoku[x][y + 1], unsolvedDataSudoku[x][y + 2],
+                    unsolvedDataSudoku[x + 1][y], unsolvedDataSudoku[x + 1][y + 1], unsolvedDataSudoku[x + 1][y + 2],
+                    unsolvedDataSudoku[x + 2][y], unsolvedDataSudoku[x + 2][y + 1], unsolvedDataSudoku[x + 2][y + 2],
+                ]}
+                data={[
+                    temporarySolutionsArray[x][y], temporarySolutionsArray[x][y + 1], temporarySolutionsArray[x][y + 2],
+                    temporarySolutionsArray[x + 1][y], temporarySolutionsArray[x + 1][y + 1], temporarySolutionsArray[x + 1][y + 2],
+                    temporarySolutionsArray[x + 2][y], temporarySolutionsArray[x + 2][y + 1], temporarySolutionsArray[x + 2][y + 2],
                 ]}
               />
             );

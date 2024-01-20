@@ -11,6 +11,7 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function Box(props) {
     const {letter} = props;
+    
     return (
         <div 
             className='grid-item'
@@ -26,8 +27,9 @@ function Box(props) {
                         key={index}
                         id={letter+number}
                         value={props.numbers[index]}
+                        data={props.data[index]}
                     />
-                ))}
+                   ))}
             </div>
         </div>
     )

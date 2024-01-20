@@ -9,7 +9,7 @@ const style = {
 
 
 function Cell(props) {
-    const {id, value} = props;
+    const {id, value, data} = props;
     const [inputValue, setInputValue] = useState(value);
     const handleInputChange = (event) => {
         // Ensure that only one digit is entered
@@ -23,6 +23,7 @@ function Cell(props) {
             className='grid-item'
             type='text'
             id={id}
+            data-sol={data}
             value={inputValue || ""}
             maxLength='1'
             size='1'
