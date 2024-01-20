@@ -14,8 +14,8 @@ const boxes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 
 
 function NewGrid(props) {
-  const { updateScore } = props;
-  const [unsolvedDataSudoku, setUnsolvedDataSudoku] = useState([]);
+  const { updateScore, sudokuBoard, updateSudokuBoard } = props;
+//   const [unsolvedDataSudoku, setUnsolvedDataSudoku] = useState([]);
   const temporarySolutionsArray = [[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9]];
   const [apiCalled, setApiCalled] = useState(false);
   const storedDifficulty = localStorage.getItem("difficulty");
@@ -43,7 +43,8 @@ function NewGrid(props) {
       try {
         const response = await axios.request(options);
         const unsolvedData = response.data.response['unsolved-sudoku'];
-        setUnsolvedDataSudoku(unsolvedData);
+        // setUnsolvedDataSudoku(unsolvedData);
+        updateSudokuBoard(unsolvedData);
 
         // Set apiCalled to true to prevent further API calls
         setApiCalled(true);
@@ -55,12 +56,12 @@ function NewGrid(props) {
     }
     sudokuApi();
 
-    if (unsolvedDataSudoku.length > 0) {
+    if (sudokuBoard.length > 0) {
         // Store unsolvedDataSudoku in local storage
-        localStorage.setItem("unsolvedDataSudoku", JSON.stringify(unsolvedDataSudoku));
-        console.log(unsolvedDataSudoku);
+        localStorage.setItem("unsolvedDataSudoku", JSON.stringify(sudokuBoard));
+        console.log(sudokuBoard);
         // Flatten the 2D array into a 1D array
-        const flattenedArray = unsolvedDataSudoku.flat();
+        const flattenedArray = sudokuBoard.flat();
         // Count the occurrences of 0 (zeros) in the flattened array
         const numberOfZeros = flattenedArray.filter(value => value === 0).length;
         // the number of zeros subttacted from 81 will determine the starter score
@@ -81,7 +82,7 @@ function NewGrid(props) {
   }, [apiCalled]);
  
  
-  if (unsolvedDataSudoku.length === 0) {
+  if (sudokuBoard.length === 0) {
     return null;
   }
 
@@ -100,9 +101,9 @@ function NewGrid(props) {
                 key={index}
                 letter={box}
                 numbers={[
-                    unsolvedDataSudoku[x][y], unsolvedDataSudoku[x][y + 1], unsolvedDataSudoku[x][y + 2],
-                    unsolvedDataSudoku[x + 1][y], unsolvedDataSudoku[x + 1][y + 1], unsolvedDataSudoku[x + 1][y + 2],
-                    unsolvedDataSudoku[x + 2][y], unsolvedDataSudoku[x + 2][y + 1], unsolvedDataSudoku[x + 2][y + 2],
+                    sudokuBoard[x][y], sudokuBoard[x][y + 1], sudokuBoard[x][y + 2],
+                    sudokuBoard[x + 1][y], sudokuBoard[x + 1][y + 1], sudokuBoard[x + 1][y + 2],
+                    sudokuBoard[x + 2][y], sudokuBoard[x + 2][y + 1], sudokuBoard[x + 2][y + 2],
                 ]}
                 data={[
                     temporarySolutionsArray[x][y], temporarySolutionsArray[x][y + 1], temporarySolutionsArray[x][y + 2],

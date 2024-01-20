@@ -5,7 +5,7 @@ import cellIds from '../../data/cellids.json';
 
 
 function GambleButton(props) {
-    const {updateScore, score} = props;
+    const {updateScore, score, updateSudokuBoard} = props;
     const cellIdsFlat = cellIds.flat();
     const [gambleResult, setGambleResult] = useState({
       text: "",
