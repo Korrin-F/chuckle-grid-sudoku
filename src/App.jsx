@@ -4,6 +4,7 @@ import FooterSection from '../src/components/Footer/FooterSection';
 import Home from './pages/Home/Home';
 import Game from './pages/Game/Game';
 import Highscores from './pages/Highscores/Highscores';
+import NewGame from './pages/Game/NewGame';
 import './App.css';
 
 
@@ -18,7 +19,7 @@ function App() {
         <NavbarSection />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/game" element={<Game />} />
+          <Route path="/game" element={<NewGame />} />
           <Route path="/highscores" element={<Highscores />} />
         </Routes>
       </Router>

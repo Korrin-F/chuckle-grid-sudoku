@@ -3,9 +3,8 @@ import { useState } from 'react';
 import EndGameModal from '../Modals/EndGameModal';
 
 function EndGameButton(props) {
-    // const {handleClick} = props;
+  const {score} = props;
   const [show, setShow] = useState(false);
-  const score = 100;
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleClick = () => {

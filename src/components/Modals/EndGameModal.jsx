@@ -52,7 +52,7 @@ function EndGameModal(props) {
         </Modal.Header>
         <Modal.Body>
             <Form>
-                <SaveName handleTextChange={handleTextChange}/>
+                <SaveName handleTextChange={handleTextChange} score={score}/>
             </Form>
         </Modal.Body>
         <Modal.Footer>
