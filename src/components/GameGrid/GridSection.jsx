@@ -1,6 +1,8 @@
 import Grid from "./Grid";
+import NewGrid from "./NewGrid";
 
 function GridSection(props) {
+
 
     return (
         <section
@@ -11,7 +13,7 @@ function GridSection(props) {
                 className='row justify-content-center text-center my-3 m-auto'
                 id='grid-row'
             >
-                <Grid unsolvedDataSudoku = {props.unsolvedDataSudoku}/>
+                <Grid unsolvedDataSudoku = {unsolvedDataSudoku}/>
             </div>
         </section>
     )
