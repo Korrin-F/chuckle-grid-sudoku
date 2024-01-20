@@ -18,7 +18,7 @@ function NewGame() {
     <Container  className="mt-2 flex-grow-1">
         <AboveGameBoard score={score} />
         <NewGridSection updateScore={updateScore} />
-        <UnderGameBoard updateScore={updateScore} />
+        <UnderGameBoard updateScore={updateScore} score={score}/>
     </Container>
     )
 }

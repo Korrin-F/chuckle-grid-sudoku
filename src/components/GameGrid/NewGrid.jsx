@@ -73,6 +73,9 @@ function NewGrid(props) {
         localStorage.setItem("score", starterScore);
         // update the score in the game
         updateScore(-(starterScore));
+        // temporary local storage that should be replaced with the actual solutions array from the API
+        const temporarySolutionsArray = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,8,0,0,0,0,0]]
+        localStorage.setItem("solutions", JSON.stringify(temporarySolutionsArray));
       }
   }, [apiCalled]);
  
