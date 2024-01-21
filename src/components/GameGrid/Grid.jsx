@@ -43,8 +43,7 @@ function GameApi() {
     }
     sudokuApi();
   }, []);
-
-  console.log(unsolvedDataSudoku);
+  
   return unsolvedDataSudoku;
 }
 

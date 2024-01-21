@@ -1,6 +1,5 @@
 import { Button } from "react-bootstrap";
 
-
 function SolutionButton(props) {
     const {handleClick} = props;
 
