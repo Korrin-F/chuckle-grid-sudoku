@@ -7,10 +7,10 @@ const styles = {
     gridTemplateColumns: "1fr 1fr 1fr",
     gridTemplateRows: "1fr 1fr 1fr"
 }
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const boardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function Box(props) {
-    const {letter} = props;
+    const {letter, numbers, data, updateCell} = props;
     
     return (
         <div 
@@ -22,12 +22,13 @@ function Box(props) {
                 style={styles}
             >
                 {/* map over the numbers array and create a new div element with the class name grid-item and text value of array value and append it to the grid-container element */}
-                {numbers.map((number, index) => (
+                {boardNumbers.map((number, index) => (
                     <Cell
                         key={index}
                         id={letter+number}
-                        value={props.numbers[index]}
-                        data={props.data[index]}
+                        value={numbers[index]}
+                        data={data[index]}
+                        updateCell={updateCell}
                     />
                    ))}
             </div>

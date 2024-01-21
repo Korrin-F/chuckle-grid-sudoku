@@ -1,6 +1,8 @@
 import Box from "./Box";
 import axios from "axios";
 import { useState, useEffect } from 'react';
+import Cell from "./Cell";
+
 
 const styles = {
   width: "500px",
@@ -19,6 +21,27 @@ function NewGrid(props) {
   const temporarySolutionsArray = [[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9]];
   const [apiCalled, setApiCalled] = useState(false);
   const storedDifficulty = localStorage.getItem("difficulty");
+  const updateCell = (id, value) => { //updates the sudokuBoard state with the new input value that the user enters into any cell
+    const x = id.charCodeAt(0) - 65; //calculates the row index based on the ASCII value of the first character of the id. this line converts the letter part to a numeric index. ASCII value of 'A' is 65, so subtracting 65 maps 'A' to 0, 'B' to 1, and so on.
+    const y = parseInt(id.charAt(1)) - 1; // extracts the numeric part from the id (the second character) and converts it to an integer. Subtracting 1 ensures that it's zero-based
+    const newSudokuBoard = [...sudokuBoard];
+    newSudokuBoard[x][y] = parseInt(value); //updates the value at the specified cell with the new input value and converts the value to an integer
+    updateSudokuBoard(newSudokuBoard);
+  }
+
+//   updateSudokuBoard(
+//     [
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""],
+//     ["", "", "", "", "", "", "", "", ""]
+//     ]
+//   )
 
   useEffect(() => {
     async function sudokuApi() {
@@ -86,7 +109,7 @@ function NewGrid(props) {
     return null;
   }
 
-    
+
 
   return (
     <>
@@ -100,6 +123,7 @@ function NewGrid(props) {
               <Box
                 key={index}
                 letter={box}
+                updateCell={updateCell}
                 numbers={[
                     sudokuBoard[x][y], sudokuBoard[x][y + 1], sudokuBoard[x][y + 2],
                     sudokuBoard[x + 1][y], sudokuBoard[x + 1][y + 1], sudokuBoard[x + 1][y + 2],

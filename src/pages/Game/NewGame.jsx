@@ -9,7 +9,19 @@ import NewGridSection from '../../components/GameGrid/NewGridSection';
 function NewGame() {
 
   const [score, setScore] = useState(405);
-  const [sudokuBoard, setSudokuBoard] = useState([]);
+  const [sudokuBoard, setSudokuBoard] = useState(
+    [
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+        // ["", "", "", "", "", "", "", "", ""],
+      ]
+  );
 
   const updateScore = (value) => {
     setScore((prevScore) => prevScore + value);
