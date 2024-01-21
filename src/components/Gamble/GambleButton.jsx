@@ -1,12 +1,10 @@
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import GambleModal from "../Modals/GambleModal";
-import cellIds from '../../data/cellids.json';
 
 
 function GambleButton(props) {
-    const {updateScore, score, updateSudokuBoard} = props;
-    const cellIdsFlat = cellIds.flat();
+    const {updateScore, score, updateSudokuBoard, sudokuBoard, solution} = props;
     const [gambleResult, setGambleResult] = useState({
       text: "",
       buttonText: "",
@@ -20,6 +18,7 @@ function GambleButton(props) {
     }
     const letsGamble = () => {
       const random = Math.floor(Math.random() * 3); //add a 3rd option for revealing tiles + subtracting or adding points
+      // const random = 2
       const amountToReveal = Math.floor(Math.random() * 5) + 5;
       if (random === 0) {
         setGambleResult({
@@ -39,36 +38,29 @@ function GambleButton(props) {
           text: `You revealed ${amountToReveal} tiles!`,
           buttonText: "Cool!",
         });
-        // reveal 3 tiles
       }
     }
 
     const revealTiles = (amount) => {
-      const tilesToReveal = [];
+      const newSudokuBoard = [...sudokuBoard];
+    
+      for (let i = 0; i < amount; i++) {
+        let randomX = Math.floor(Math.random() * 9);
+        let randomY = Math.floor(Math.random() * 9);
 
-      for(let i = 0; i < amount; i++) {
-        const random = Math.floor(Math.random() * 82);
-        const randomCell = cellIdsFlat[random];
-        console.log(randomCell);
-        const cell = document.getElementById(randomCell);
-        const solution = cell.getAttribute("data-sol");
-        // make sure the cell is elegable to be revealed
-        // and make sure the same tile has not already be chosen
-        if (solution !== "0" && !tilesToReveal.includes(randomCell)) {
-          tilesToReveal.push(randomCell);
-        } else {
-          i--;
-        }
+        // console.log("Board cell value:", newSudokuBoard[randomX][randomY]);
+        // console.log("Solution cell value:", solution[randomX][randomY]);
+        console.log("X:", randomX, "Y:", randomY, "Changed to:", solution[randomX][randomY])
+        
+        newSudokuBoard[randomX][randomY] = solution[randomX][randomY];
+        // console.log("New board cell value:", newSudokuBoard[randomX][randomY]);
+      
       }
+    
+        updateSudokuBoard(newSudokuBoard);
+      };
+    
 
-      for (let tile of tilesToReveal) {
-        const cell = document.getElementById(tile);
-        const solution = cell.getAttribute("data-sol");
-        cell.value = solution;
-      }
-
-    }
- 
 
   return (
     <>
@@ -115,3 +107,29 @@ export default GambleButton;
 
 //     console.log("starter array:", starterArray);
 //   }, []);
+
+    // const revealTiles = (amount) => {
+    //   const tilesToReveal = [];
+
+    //   for(let i = 0; i < amount; i++) {
+    //     const random = Math.floor(Math.random() * 82);
+    //     const randomCell = cellIdsFlat[random];
+    //     console.log(randomCell);
+    //     const cell = document.getElementById(randomCell);
+    //     const solution = cell.getAttribute("data-sol");
+    //     // make sure the cell is elegable to be revealed
+    //     // and make sure the same tile has not already be chosen
+    //     if (solution !== "0" && !tilesToReveal.includes(randomCell)) {
+    //       tilesToReveal.push(randomCell);
+    //     } else {
+    //       i--;
+    //     }
+    //   }
+
+    //   for (let tile of tilesToReveal) {
+    //     const cell = document.getElementById(tile);
+    //     const solution = cell.getAttribute("data-sol");
+    //     cell.value = solution;
+    //   }
+
+    // }

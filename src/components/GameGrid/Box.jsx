@@ -11,6 +11,8 @@ const boardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function Box(props) {
     const {letter, numbers, data, updateCell} = props;
+
+    // console.log(`Box Props - Letter: ${letter}, Numbers: ${numbers}, Data: ${data}`);
     
     return (
         <div 
