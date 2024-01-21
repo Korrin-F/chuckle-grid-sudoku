@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const style = {
-    width: "100%",
-    height: "100%",
-    textAlign: "center",
-    fontSize: "30px"
+  width: "100%",
+  height: "100%",
+  textAlign: "center",
+  fontSize: "30px"
 }
 
-
-function Cell(props) {
-    const {id, value} = props;
-    const [inputValue, setInputValue] = useState(value);
-    const handleInputChange = (event) => {
-        // Ensure that only one digit is entered
+function Cell({ id, value, updateCell }) {
+  const handleInputChange = (event) => {
+    // Ensure that only one digit is entered
     const newInputValue = event.target.value.slice(0, 1);
+    console.log(`Cell Input Change: ${newInputValue} for ${id}`);
     // Update the input value using state
-    setInputValue(newInputValue);
-    };
+    updateCell(id, newInputValue);
+  };
 
-    return (
-        <input
-            className='grid-item'
-            type='text'
-            id={id}
-            value={inputValue || ""}
-            maxLength='1'
-            size='1'
-            onChange={handleInputChange}
-            style={style}
-        />
-    )
+  const handleInputBlur = (event) => {
+    const newInputValue = event.target.value.slice(0, 1);
+    updateCell(id, newInputValue);
+  };
+
+  return (
+    <input
+      className='grid-item'
+      type='text'
+      id={id}
+      value={value !== 0 ? value : ''}
+      maxLength='1'
+      size='1'
+      onChange={handleInputChange}
+      onBlur={handleInputBlur}
+      style={style}
+    />
+  );
 }
 
 export default Cell;
