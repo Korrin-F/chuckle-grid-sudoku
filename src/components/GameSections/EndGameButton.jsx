@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import EndGameModal from '../Modals/EndGameModal';
 
-function SolutionButton(props) {
-    // const {handleClick} = props;
+function EndGameButton(props) {
+  const {score} = props;
   const [show, setShow] = useState(false);
-  const score = 100; //get this from local storage
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleClick = () => {
@@ -15,16 +15,17 @@ function SolutionButton(props) {
   return (
     <>
     <Button
-      className=""
-      variant="warning"
+      className="mx-2"
+      variant="danger"
       onClick={handleClick}
       size="m"
     >
-      Solution
+      End Game
     </Button>
+    <EndGameModal show={show} handleClose={handleClose} score={score}/>
     </>
     
   );
 }
 
-export default SolutionButton;
+export default EndGameButton;
