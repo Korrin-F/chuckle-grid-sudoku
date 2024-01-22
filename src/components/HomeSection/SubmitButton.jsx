@@ -5,7 +5,7 @@ function SubmitButton(props) {
 
     return (
         <Button
-            className="m-2"
+            className="m-auto mt-2"
             variant="success"
             onClick={handleFormSubmit}
             size="lg"

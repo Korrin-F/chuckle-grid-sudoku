@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import Column from 'react-bootstrap/Col';
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import ChooseDifficulty from './ChooseDifficulty';
@@ -7,6 +7,7 @@ import EnterMotivation from './EnterMotivation';
 import { useState } from 'react';
 import SubmitButton from './SubmitButton';
 import { useNavigate } from 'react-router-dom';
+import Stack from 'react-bootstrap/Stack';
 
 const styles = {
     headers: {
@@ -24,6 +25,7 @@ const styles = {
         boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
         color: "white",
         fontFamily: "var(--fontTwo)",
+        width: "max-content"
     }
 }
  
@@ -59,17 +61,17 @@ function HomeForm() {
     
     
     return (
-        <Container className="py-3 mb-5">
-            <Row className="justify-content-center text-center">
-                <Column className="col-6">
-                    <Form>
+        // <Container className="py-3 mb-5 px-0 mx-0">
+            <Row className="justify-content-center text-center m-0 p-0 w-100">
+                <Col xs sm="" md="7" lg="6">
+                    <Stack direction="virtical" gap={4} as={'form'} className="p-2 m-0">
                         <ChooseDifficulty handleDifficultyChange={handleDifficultyChange} headerStyle={styles.headers}/>
                         <EnterMotivation handleTextChange={handleTextChange} headerStyle={styles.headers}/>
                         <SubmitButton handleFormSubmit={handleFormSubmit} style={styles.button}/>
-                    </Form>
-                </Column>
+                    </Stack>
+                </Col>
             </Row>
-        </Container>
+        // </Container>
     )
 }
 
