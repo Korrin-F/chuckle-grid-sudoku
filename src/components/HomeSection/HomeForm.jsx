@@ -7,6 +7,25 @@ import EnterMotivation from './EnterMotivation';
 import { useState } from 'react';
 import SubmitButton from './SubmitButton';
 import { useNavigate } from 'react-router-dom';
+
+const styles = {
+    headers: {
+        color: "var(--yellow)",
+        fontWeight: "bold",
+        fontFamily: "var(--fontThree)",
+        fontStyle: "bold",
+        // textShadow: "3px 2px 6px var(--shadow), 3px 2px 4px var(--shadow-teal)",
+        textShadow: "-1px -1px 2px rgba(255,255,255,0.5), 1px 1px 2px rgba(70,70,70,0.7)"
+    },
+    button: {
+        backgroundColor: "var(--pink)",
+        borderRadius: "1rem",
+        border: "outset 0.5rem var(--pink)",
+        boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+        color: "var(--yellow)",
+        fontFamily: "var(--fontTwo)",
+    }
+}
  
 
 function HomeForm() {
@@ -36,18 +55,17 @@ function HomeForm() {
         //go to game page
         navigate('/game');
 
-
     }
     
     
     return (
-        <Container>
+        <Container className="py-3 mb-5">
             <Row className="justify-content-center text-center">
                 <Column className="col-6">
                     <Form>
-                        <ChooseDifficulty handleDifficultyChange={handleDifficultyChange}/>
-                        <EnterMotivation handleTextChange={handleTextChange} />
-                        <SubmitButton handleFormSubmit={handleFormSubmit}/>
+                        <ChooseDifficulty handleDifficultyChange={handleDifficultyChange} headerStyle={styles.headers}/>
+                        <EnterMotivation handleTextChange={handleTextChange} headerStyle={styles.headers}/>
+                        <SubmitButton handleFormSubmit={handleFormSubmit} style={styles.button}/>
                     </Form>
                 </Column>
             </Row>

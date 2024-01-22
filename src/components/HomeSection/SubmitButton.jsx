@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 
 function SubmitButton(props) {
-    const {handleFormSubmit} = props;
+    const {handleFormSubmit, style} = props;
 
     return (
         <Button
@@ -9,8 +9,9 @@ function SubmitButton(props) {
             variant="success"
             onClick={handleFormSubmit}
             size="lg"
+            style={style}
         >
-            Submit
+            New Game
         </Button>
     );
 }

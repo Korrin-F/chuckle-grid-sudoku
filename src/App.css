@@ -5,4 +5,11 @@
     --blue: rgb(75, 166, 248);
     --orange: rgb(241, 201, 60);
     --teal: rgb(117, 231, 200);
+    --shadow: rgba(0, 44, 71, 0.304);
+    --shadow-teal: rgba(221, 247, 220, 0.924);
+
+    --fontOne: 'Englebert', sans-serif;
+    --fontTwo: 'Acme', sans-serif;
+    --fontThree: 'Sarabun', sans-serif;
+    --fontFour: 'Riteous', sans-serif;
 }
