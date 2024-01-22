@@ -7,6 +7,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import HighscoresBTN from './HighscoresBTN';
 
 const styles = {
   backgroundColor: "var(--orange)",
@@ -109,51 +111,31 @@ function NavbarSection() {
   }
 
   return (
-   
-      <Nav 
-      className="navbar justify-content-end align-items-center"
-      style={styles}
-      >
-        <Row style={logo.global} className="justify-content-center">
 
+      <Navbar className="" style={styles}>
+        <Container >
+        <Row className='w-100 align-items-center m-0 p-0'>
+            <Col className='col-6 d-flex flex-col justify-content-start p-3'>
+              <InstructionsBTN />
+            </Col>
+            <Col className='col-6 d-flex flex-col justify-content-end p-3'>
+              <HighscoresBTN />
+            </Col>
+        </Row>
+        </Container>
+        <Container fluid style={logo.global}>
+        <Row  className="w-100 justify-content-center">
           <Col className="col-5 d-flex flex-column justify-content-center">
-            <Navbar.Brand 
-              className="mx-auto pt-2"
-              style={navBarBrand}
-              >
-            
+            <Navbar.Brand className="mx-auto pt-2" style={navBarBrand} >          
               <Link to="/" > 
                 <Logo /> 
               </Link>
-
             </Navbar.Brand>
           </Col>
-
         </Row>
-        {/* <Navbar.Brand 
-        className="justify-content-center"
-        style={{...logo.global, ...logoStyle}}>
-          
-          <Link to="/" > 
-            <Logo /> 
-          </Link>
+        </Container>
+      </Navbar>
 
-        </Navbar.Brand> */}
-
-        <Row 
-        className='row me-2'
-        >
-            <Col className='col p-3'>
-              <InstructionsBTN />
-            </Col>
-            <Col className='col p-3'>
-              <Link to="/highscores">Highscores</Link>
-            </Col>
-
-        </Row>
- 
-      </Nav>
-  
   );
 }
 

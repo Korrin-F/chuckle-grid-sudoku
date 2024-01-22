@@ -1,5 +1,6 @@
 import InstructionsModal from "../Modals/InstructionsModal";
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 function InstructionsBTN() {
     const [showModal, setShowModal] = useState(false);
@@ -14,10 +15,11 @@ function InstructionsBTN() {
 
     return (
         <>
-            <button type="button" className="btn btn-primary"
+            <Button primary
+            className=""
             onClick={openModal} >
                 Instructions
-            </button>
+            </Button>
             {showModal && <InstructionsModal closeModal={closeModal} />}
         </>
         
