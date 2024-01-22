@@ -1,16 +1,18 @@
 import Button from 'react-bootstrap/Button';
 import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function SubmitButton(props) {
     const { style} = props;
+    const navigate = useNavigate();
 
     const handleNaviation = () => {
-        return <Navigate to="/highscores" />
+        navigate('/highscores');
     }
 
     return (
         <Button 
-        className="btn-primary"
+        // className="btn-primary"
         onClick={handleNaviation} 
         >
             Highscores

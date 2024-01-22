@@ -15,7 +15,7 @@ function InstructionsBTN() {
 
     return (
         <>
-            <Button primary
+            <Button 
             className=""
             onClick={openModal} >
                 Instructions

@@ -19,7 +19,7 @@ const logo = {
 
   global: {
     position: "absolute",
-    zIndex: "2",
+    zIndex: "1",
     width: "100%"
     // margin: "0 auto",
     // display: "flex"
@@ -113,7 +113,8 @@ function NavbarSection() {
   return (
 
       <Navbar className="" style={styles}>
-        <Container >
+        <Container 
+        style={{position: "relative", zIndex: "2", height: "min-content" }}>
         <Row className='w-100 align-items-center m-0 p-0'>
             <Col className='col-6 d-flex flex-col justify-content-start p-3'>
               <InstructionsBTN />
@@ -123,8 +124,8 @@ function NavbarSection() {
             </Col>
         </Row>
         </Container>
-        <Container fluid style={logo.global}>
-        <Row  className="w-100 justify-content-center">
+        <Container fluid className="p-0 m-0"style={logo.global}>
+        <Row  className="w-100 p-0 m-0 justify-content-center">
           <Col className="col-5 d-flex flex-column justify-content-center">
             <Navbar.Brand className="mx-auto pt-2" style={navBarBrand} >          
               <Link to="/" > 
