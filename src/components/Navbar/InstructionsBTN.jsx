@@ -2,7 +2,8 @@ import InstructionsModal from "../Modals/InstructionsModal";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-function InstructionsBTN() {
+function InstructionsBTN(props) {
+    const { style } = props;
     const [showModal, setShowModal] = useState(false);
 
     const openModal = () => {
@@ -16,7 +17,7 @@ function InstructionsBTN() {
     return (
         <>
             <Button 
-            className=""
+            style={style}
             onClick={openModal} >
                 Instructions
             </Button>

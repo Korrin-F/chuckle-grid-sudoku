@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function SubmitButton(props) {
-    const { style} = props;
+    const { style } = props;
     const navigate = useNavigate();
 
     const handleNaviation = () => {
@@ -12,7 +12,7 @@ function SubmitButton(props) {
 
     return (
         <Button 
-        // className="btn-primary"
+        style={style}
         onClick={handleNaviation} 
         >
             Highscores

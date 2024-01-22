@@ -22,7 +22,7 @@ const styles = {
         borderRadius: "1rem",
         border: "outset 0.5rem var(--pink)",
         boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
-        color: "var(--yellow)",
+        color: "white",
         fontFamily: "var(--fontTwo)",
     }
 }

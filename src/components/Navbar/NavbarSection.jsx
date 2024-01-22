@@ -12,7 +12,14 @@ import HighscoresBTN from './HighscoresBTN';
 
 const styles = {
   backgroundColor: "var(--orange)",
-
+  navButtons: {
+    backgroundColor: "var(--blue)",
+    borderRadius: "1rem",
+    border: "outset 0.5rem var(--blue)",
+    boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+    color: "white",
+    fontFamily: "var(--fontThree)",
+  }
 }
 
 const logo = {
@@ -117,10 +124,10 @@ function NavbarSection() {
         style={{position: "relative", zIndex: "2", height: "min-content" }}>
         <Row className='w-100 align-items-center m-0 p-0'>
             <Col className='col-6 d-flex flex-col justify-content-start p-3'>
-              <InstructionsBTN />
+              <InstructionsBTN style={styles.navButtons}/>
             </Col>
             <Col className='col-6 d-flex flex-col justify-content-end p-3'>
-              <HighscoresBTN />
+              <HighscoresBTN style={styles.navButtons}/>
             </Col>
         </Row>
         </Container>
