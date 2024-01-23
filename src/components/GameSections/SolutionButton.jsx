@@ -3,13 +3,15 @@ import { useState } from 'react';
 
 
 function SolutionButton(props) {
-    // const {handleClick} = props;
-  const [show, setShow] = useState(false);
-  const score = 100; //get this from local storage
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const {sudokuBoard, updateSudokuBoard, solution} = props;
+  // const [show, setShow] = useState(false);
+  // const score = 100; //get this from local storage
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
   const handleClick = () => {
-    handleShow();
+    //update the board with the solution
+    updateSudokuBoard(solution);
+    // handleShow();
     // display solution
   }
 

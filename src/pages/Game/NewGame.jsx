@@ -5,6 +5,7 @@ import AboveGameBoard from '../../components/GameSections/AboveGameBoard';
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import NewGridSection from '../../components/GameGrid/NewGridSection';
+import NewGrid from '../../components/GameGrid/NewGrid';
 
 function NewGame() {
 
@@ -18,7 +19,6 @@ function NewGame() {
   const updateSolution = (newSolution) => {
     setSolution(newSolution);
   }
-
   const updateScore = (value) => {
     setScore((prevScore) => prevScore + value);
   };
@@ -108,8 +108,8 @@ function NewGame() {
 
   return (
     <Container  className="mt-2 flex-grow-1">
-        <AboveGameBoard score={score} />
-        <NewGridSection  sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
+        <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
+        <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
         <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
     </Container>
     )

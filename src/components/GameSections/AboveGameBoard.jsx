@@ -7,7 +7,7 @@ import EndGameButton from './EndGameButton';
 
 
 function AboveGameBoard(props) {
-    const { score } = props;
+    const { score, sudokuBoard, updateSudokuBoard, solution } = props;
   return (
         <Container className="mt-4 mb-3">
             <Row className="justify-content-end">
@@ -15,7 +15,7 @@ function AboveGameBoard(props) {
                     <Score score={score} />
                 </Col>
                 <Col className='d-flex flex-col justify-content-end col-12'>
-                    <SolutionButton />
+                    <SolutionButton sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
                     <EndGameButton score={score}/>
                 </Col>
             </Row>

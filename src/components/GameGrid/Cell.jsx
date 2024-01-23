@@ -1,10 +1,19 @@
 import React from 'react';
 
 const style = {
-  width: "100%",
-  height: "100%",
-  textAlign: "center",
-  fontSize: "30px"
+  // aspectRatio: 1,
+  // width: "4rem",
+  // height: "4rem",
+  // textAlign: "center",
+  // fontSize: "2.5rem", //30px
+  display: 'block',
+  // width: '100%',
+  // padding: '0.375rem 0.75rem',
+  // fontSize: '2rem',
+  // lineHeight: '1.5',
+  // fontWeight: '400',
+  border: "1px solid lightgrey",
+  borderRadius: 0 
 }
 
 function Cell({ id, value, updateCell }) {
@@ -23,7 +32,7 @@ function Cell({ id, value, updateCell }) {
 
   return (
     <input
-      className='grid-item'
+      className='grid-item text-center form-control '
       type='text'
       id={id}
       value={value !== 0 ? value : ''}
