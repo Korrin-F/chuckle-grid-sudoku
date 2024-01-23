@@ -20,9 +20,12 @@ function Cell(props) {
 
   const handleBorderStyle = (id) => {
     
-    const thick = "outset  thick var(--orange";
-    const medium = "outset medium  var(--orange)";
-    const thin = "outset thin var(--light-grey)";
+    const thick = "inset  thick var(--orange";
+    const medium = "inset medium  var(--orange)";
+    const thin = "inset thin var(--light-grey)";
+    // const thick = "thick solid var(--orange";
+    // const medium = "medium  solid var(--orange)";
+    // const thin = "thin solid var(--light-grey)";
 
     let top = thin;
     let right = thin;
