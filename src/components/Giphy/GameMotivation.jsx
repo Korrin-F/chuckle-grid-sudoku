@@ -48,7 +48,7 @@ const MotivationButton = ({ setMotivation, motivation }) => {
       //changed this
       // Fetch multiple gifs based on searchTerm
       const response = await axios.get(
-        `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${APIKey}&limit=5&offset=5&rating=g&lang=en`
+        `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${APIKey}&limit=5&offset=5&rating=y&lang=en`
       );
       const gifData = response.data.data;
       
