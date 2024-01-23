@@ -22,7 +22,7 @@ function Cell(props) {
     
     const thick = "thick ridge var(--orange";
     const medium = "medium ridge var(--orange)";
-    const thin = "thin ridge lightgrey";
+    const thin = "thin ridge var(--light-grey)";
 
     let top = thin;
     let right = thin;
