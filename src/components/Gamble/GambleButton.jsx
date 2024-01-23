@@ -1,8 +1,9 @@
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
 import GambleModal from "../Modals/GambleModal";
-import useSound from 'use-sound';
-import GambleSound from "../ButtonSounds/GambleSound.jsx";
+import RevealTilesSound from "../ButtonSounds/RevealTileSound";
+import LosePointsSound from "../ButtonSounds/LosePointsSound";
+import GainPointsSound from "../ButtonSounds/GainPointsSound";
 
 const style = {
   backgroundColor: "var(--pink)",
@@ -11,84 +12,87 @@ const style = {
   boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
   color: "white",
   fontFamily: "var(--fontTwo)",
-  width: "max-content"
-}
+  width: "max-content",
+};
 
 function GambleButton(props) {
-    const {updateScore, score, updateSudokuBoard, sudokuBoard, solution} = props;
-    const [gambleResult, setGambleResult] = useState({
-      text: "",
-      buttonText: "",
-    });
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [playSound, setPlaySound] = useState(false);
-    const handleClick = () => {
-      letsGamble();
-      handleShow();
-      setPlaySound(true);
+  const { updateScore, score, updateSudokuBoard, sudokuBoard, solution } = props;
+  const [gambleResult, setGambleResult] = useState({
+    text: "",
+    buttonText: "",
+  });
+  const [show, setShow] = useState(false);
+  const [amountToReveal, setAmountToReveal] = useState(0); // Declare amountToReveal
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
+
+  const handleClick = () => {
+    letsGamble();
+    handleShow();
+  };
+
+  const letsGamble = () => {
+    const random = Math.floor(Math.random() * 3);
+    const randomAmount = Math.floor(Math.random() * 5) + 5;
+
+    // Set the amountToReveal
+    setAmountToReveal(randomAmount);
+
+    if (random === 0) {
+      setGambleResult({
+        text: "You lost 50 points!",
+        buttonText: "Whatever!",
+      });
+      updateScore(-50);
+      playAudio("losePointsSound");
+    } else if (random === 1) {
+      setGambleResult({
+        text: "You gained 50 points!",
+        buttonText: "Awesome!",
+      });
+      updateScore(50);
+      playAudio("gainPointsSound");
+    } else {
+      revealTiles(randomAmount);
+      setGambleResult({
+        text: `You revealed ${randomAmount} tiles!`,
+        buttonText: "Cool!",
+      });
+      playAudio("revealTilesSound");
     }
-    const letsGamble = () => {
-      const random = Math.floor(Math.random() * 3); //add a 3rd option for revealing tiles + subtracting or adding points
-      // const random = 2
-      const amountToReveal = Math.floor(Math.random() * 5) + 5;
-      if (random === 0) {
-        setGambleResult({
-          text: "You lost 50 points!",
-          buttonText: "Whatever!",
-        });
-        updateScore(-50);
-      } else if (random === 1) {
-        setGambleResult({
-          text: "You gained 50 points!",
-          buttonText: "Awesome!",
-        });
-        updateScore(50);
-      } else {
-        revealTiles(amountToReveal);
-        setGambleResult({
-          text: `You revealed ${amountToReveal} tiles!`,
-          buttonText: "Cool!",
-        });
-      }
+  };
+
+  const revealTiles = (amount) => {
+    const newSudokuBoard = [...sudokuBoard];
+
+    for (let i = 0; i < amount; i++) {
+      let randomX = Math.floor(Math.random() * 9);
+      let randomY = Math.floor(Math.random() * 9);
+
+      console.log("X:", randomX, "Y:", randomY, "Changed to:", solution[randomX][randomY]);
+
+      newSudokuBoard[randomX][randomY] = solution[randomX][randomY];
     }
 
-    const revealTiles = (amount) => {
-      const newSudokuBoard = [...sudokuBoard];
-    
-      for (let i = 0; i < amount; i++) {
-        let randomX = Math.floor(Math.random() * 9);
-        let randomY = Math.floor(Math.random() * 9);
+    updateSudokuBoard(newSudokuBoard);
+  };
 
-        // console.log("Board cell value:", newSudokuBoard[randomX][randomY]);
-        // console.log("Solution cell value:", solution[randomX][randomY]);
-        console.log("X:", randomX, "Y:", randomY, "Changed to:", solution[randomX][randomY])
-        
-        newSudokuBoard[randomX][randomY] = solution[randomX][randomY];
-        // console.log("New board cell value:", newSudokuBoard[randomX][randomY]);
-      
-      }
-    
-        updateSudokuBoard(newSudokuBoard);
-      };
-    
-
+  const playAudio = (soundType) => {
+    // ... (unchanged)
+  };
 
   return (
     <>
-    <Button
-      className="m-2"
-      onClick={handleClick}
-      size="lg"
-      style={style}
-    >
-      Gamble
-    </Button>
-    <GambleModal show={show} handleClose={handleClose} score={score} gamble={gambleResult}/>
-    <GambleSound playSound={playSound} />
+      <Button className="m-2" onClick={handleClick} size="lg" style={style}>
+        Gamble
+      </Button>
+      <GambleModal show={show} handleClose={handleClose} score={score} gamble={gambleResult} />
+      {gambleResult.text === `You revealed ${amountToReveal} tiles!` && <RevealTilesSound playSound={true} />}
+      {gambleResult.text === "You lost 50 points!" && <LosePointsSound playSound={true} />}
+      {gambleResult.text === "You gained 50 points!" && <GainPointsSound playSound={true} />}
     </>
-    
   );
 }
 
