@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import MotivationSound from '../ButtonSounds/MotivationSound.jsx'; 
 
 const style = {
   backgroundColor: "var(--pink)",
@@ -32,11 +33,9 @@ const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
 );
 
 const MotivationButton = ({ setMotivation, motivation }) => {
-  // console.log(motivation)
   const [showModal, setShowModal] = useState(false);
-  const [gifUrl, setGifUrl] = useState('');
+  const [gifUrls, setGifUrls] = useState([]);
   const [quote, setQuote] = useState('');
-
 
   const handleMotivateClick = async () => {
     const searchTerm = localStorage.getItem('motivation');
@@ -46,16 +45,21 @@ const MotivationButton = ({ setMotivation, motivation }) => {
     console.log(APIKey);
 
     try {
-      // Fetch gif based on searchTerm
+      //changed this
+      // Fetch multiple gifs based on searchTerm
       const response = await axios.get(
-
-
-        `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${APIKey}&limit=1&offset=5&rating=g&lang=en`
+        `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${APIKey}&limit=5&offset=5&rating=g&lang=en`
       );
-      const gifData = response.data.data[0];
-      setGifUrl(gifData.images.original.url);
+      const gifData = response.data.data;
+      
+      // Extract gif URLs from the response
+      //maps through response and shows different one with each click
+      const urls = gifData.map((gif) => gif.images.original.url);
+      
+      // Set the gifUrls state with the array of gif URLs
+      setGifUrls(urls);
     } catch (error) {
-      console.error('Error fetching gif:', error);
+      console.error('Error fetching gifs:', error);
     }
 
     // Uncomment and adjust the code if you want to fetch an inspirational quote
@@ -90,17 +94,15 @@ const MotivationButton = ({ setMotivation, motivation }) => {
         Motivate Me
       </Button>
 
-      {/* <button type="button" className="btn btn-primary" onClick={handleMotivateClick}>
-        Motivate Me
-      </button> */}
-
       {/* Render MotivationModal based on showModal state */}
       <MotivationModal
         showModal={showModal}
         closeModal={closeModal}
-        gifUrl={gifUrl}
+        gifUrl={gifUrls.length > 0 ? gifUrls[Math.floor(Math.random() * gifUrls.length)] : ''}
         quote={quote}
       />
+       {/* Add MotivationSound component */}
+       <MotivationSound playSound={showModal} />
     </>
   );
 };

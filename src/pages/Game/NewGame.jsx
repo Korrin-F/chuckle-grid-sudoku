@@ -16,6 +16,7 @@ function NewGame() {
   const [score, setScore] = useState(405);
   const [sudokuBoard, setSudokuBoard] = useState([]);
   const [solution, setSolution] = useState([]);
+  const [boardColors, setBoardColors] = useState([]);
   const [apiCalled, setApiCalled] = useState(false);
   const storedDifficulty = localStorage.getItem("difficulty");
 
@@ -30,7 +31,31 @@ function NewGame() {
     setSudokuBoard(newSudokuBoard);
   };
 
-  // useEffect(() => {
+  useEffect(() => {
+    const tempBoard = [
+      [0,4,0,0,8,1,0,0,0],
+      [0,0,0,0,4,9,1,0,0],
+      [0,0,1,0,0,6,2,0,4],
+      [1,0,7,0,0,5,0,0,0],
+      [6,0,4,8,0,7,0,1,0],
+      [5,8,0,1,0,3,4,7,0],
+      [0,6,0,0,1,0,0,2,0],
+      [7,1,0,0,0,4,0,6,3],
+      [0,0,8,0,0,2,0,4,0]
+    ];
+    const tempSolution = [
+      [2,4,5,3,8,1,6,9,7],
+      [3,7,6,2,4,9,1,5,8],
+      [8,9,1,5,7,6,2,3,4],
+      [1,2,7,4,9,5,3,8,6],
+      [6,3,4,8,2,7,5,1,9],
+      [5,8,9,1,6,3,4,7,2],
+      [4,6,3,7,1,8,9,2,5],
+      [7,1,2,9,5,4,8,6,3],
+      [9,5,8,6,3,2,7,4,1]
+    ];
+    updateSudokuBoard(tempBoard);
+    updateSolution(tempSolution);
   //   let isMounted = true; // Flag to check if the component is still mounted
 
   //   async function sudokuApi() {
@@ -106,14 +131,14 @@ function NewGame() {
   //   };
 
     
-  // }, [apiCalled]);
+  }, [apiCalled]);
 
 
 
   return (
     <Container fluid className="pt-2 flex-grow-1" style={styles}>
         <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
-        <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
+        <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution} updateSolution={updateSolution}/>
         <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
     </Container>
     )

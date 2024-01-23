@@ -1,6 +1,8 @@
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import GambleModal from "../Modals/GambleModal";
+import useSound from 'use-sound';
+import GambleSound from "../ButtonSounds/GambleSound.jsx";
 
 const style = {
   backgroundColor: "var(--pink)",
@@ -21,9 +23,11 @@ function GambleButton(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [playSound, setPlaySound] = useState(false);
     const handleClick = () => {
       letsGamble();
       handleShow();
+      setPlaySound(true);
     }
     const letsGamble = () => {
       const random = Math.floor(Math.random() * 3); //add a 3rd option for revealing tiles + subtracting or adding points
@@ -82,6 +86,7 @@ function GambleButton(props) {
       Gamble
     </Button>
     <GambleModal show={show} handleClose={handleClose} score={score} gamble={gambleResult}/>
+    <GambleSound playSound={playSound} />
     </>
     
   );
