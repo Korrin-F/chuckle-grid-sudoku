@@ -22,14 +22,14 @@ const styles = {
 function NewGrid(props) {
   const { sudokuBoard, updateSudokuBoard, solution } = props;
 
-  const updateCell = (id, value) => { //updates the sudokuBoard state with the new input value that the user enters into any cell
-    const rowIndex = parseInt(id.charAt(0));
-    const colIndex = parseInt(id.charAt(1));
+  // const updateCell = (id, value) => { //updates the sudokuBoard state with the new input value that the user enters into any cell
+  //   const rowIndex = parseInt(id.charAt(0));
+  //   const colIndex = parseInt(id.charAt(1));
     
-    const newSudokuBoard = [...sudokuBoard];
-    newSudokuBoard[rowIndex][colIndex] = parseInt(value);
-    updateSudokuBoard(newSudokuBoard);
-  }
+  //   const newSudokuBoard = [...sudokuBoard];
+  //   newSudokuBoard[rowIndex][colIndex] = parseInt(value);
+  //   updateSudokuBoard(newSudokuBoard);
+  // }
 
   useEffect(() => {
     console.log("Sudoku Board Updated:", sudokuBoard);
@@ -65,7 +65,9 @@ function NewGrid(props) {
               key={`${rowIndex}${colIndex}`}
               id={`${rowIndex}${colIndex}`}
               value={value}
-              updateCell={updateCell}
+              // updateCell={updateCell}
+              sudokuBoard={sudokuBoard}
+              updateSudokuBoard={updateSudokuBoard}
             />
           ))
         ))}
