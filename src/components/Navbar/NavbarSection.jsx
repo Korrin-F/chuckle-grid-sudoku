@@ -19,7 +19,11 @@ const styles = {
     boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
     color: "white",
     fontFamily: "var(--fontThree)",
-  }
+  },
+  container: {
+    position: "relative", 
+    zIndex: "2", 
+    height: "min-content" }
 }
 
 const logo = {
@@ -30,19 +34,6 @@ const logo = {
     width: "100%"
     // margin: "0 auto",
     // display: "flex"
-  },
-
-  left: {
-    small: {
-
-    },
-    medium: {
-
-    },
-    large: {
-      bottom: "-2.5rem",
-      left: "2rem",
-    }
   },
 
   center: {
@@ -121,7 +112,7 @@ function NavbarSection() {
 
       <Navbar className="" style={styles}>
         <Container 
-        style={{position: "relative", zIndex: "2", height: "min-content" }}>
+        style={styles.container}>
         <Row className='w-100 align-items-center m-0 p-0'>
             <Col className='col-6 d-flex flex-col justify-content-start p-3'>
               <InstructionsBTN style={styles.navButtons}/>
