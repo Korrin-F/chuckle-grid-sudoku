@@ -24,13 +24,14 @@ const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
           </button>
         </div>
         <div className="modal-body">
-          {gifUrl && <img src={gifUrl} alt="Motivational Gif" />}
+          {gifUrl && <img style={{ maxWidth: '100%', height: 'auto' }} src={gifUrl} alt="Motivational Gif" />}
           {quote && <div>{quote}</div>}
         </div>
       </div>
     </div>
   </div>
 );
+
 
 const MotivationButton = ({ setMotivation, motivation }) => {
   const [showModal, setShowModal] = useState(false);
