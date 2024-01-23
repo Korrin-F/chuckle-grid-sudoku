@@ -41,7 +41,5 @@ function SolutionButton(props) {
     
   );
 }
-}
-
 
 export default SolutionButton;
