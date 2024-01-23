@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import MotivationSound from '../ButtonSounds/MotivationSound.jsx'; 
 
 const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
   <div className={`modal fade ${showModal ? 'show' : ''}`} id="motivationModal" tabIndex={-1} role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
@@ -89,6 +90,8 @@ const MotivationButton = ({ setMotivation, motivation }) => {
         gifUrl={gifUrls.length > 0 ? gifUrls[Math.floor(Math.random() * gifUrls.length)] : ''}
         quote={quote}
       />
+       {/* Add MotivationSound component */}
+       <MotivationSound playSound={showModal} />
     </>
   );
 };
