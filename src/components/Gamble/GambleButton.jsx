@@ -4,6 +4,15 @@ import GambleModal from "../Modals/GambleModal";
 import useSound from 'use-sound';
 import GambleSound from "../ButtonSounds/GambleSound.jsx";
 
+const style = {
+  backgroundColor: "var(--pink)",
+  borderRadius: "1rem",
+  border: "outset 0.5rem var(--pink)",
+  boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+  color: "white",
+  fontFamily: "var(--fontTwo)",
+  width: "max-content"
+}
 
 function GambleButton(props) {
     const {updateScore, score, updateSudokuBoard, sudokuBoard, solution} = props;
@@ -70,9 +79,9 @@ function GambleButton(props) {
     <>
     <Button
       className="m-2"
-      variant="danger"
       onClick={handleClick}
       size="lg"
+      style={style}
     >
       Gamble
     </Button>
