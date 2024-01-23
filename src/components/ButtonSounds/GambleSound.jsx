@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useSound from 'use-sound';
 import gambleSound from '../../sounds/oooh-hoo.mp3';
 
 const GambleSound = ({ playSound }) => {
-  const [play] = useSound(gambleSound);
+  const [play, { stop }] = useSound(gambleSound);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (playSound) {
       play();
+    } else {
+      stop(); // Stop the sound when playSound is false
     }
-  }, [playSound, play]);
+  }, [playSound, play, stop]);
 
   return null;
 };
