@@ -15,10 +15,9 @@ const styles = {
 };
 
 
-
-
 function NewGrid(props) {
   const { sudokuBoard, updateSudokuBoard, solution, updateSolution } = props;
+
 
 
   useEffect(() => {
@@ -27,9 +26,7 @@ function NewGrid(props) {
     // ... rest of your code
 
   }, [sudokuBoard, solution]);
- 
 
- 
   if (sudokuBoard.length === 0) {
     return null;
   }

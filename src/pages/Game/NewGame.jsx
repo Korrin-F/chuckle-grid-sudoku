@@ -136,6 +136,7 @@ function NewGame() {
 
 
   return (
+
     <Container fluid className="pt-2 flex-grow-1" style={styles}>
         <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
         <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution} updateSolution={updateSolution}/>
