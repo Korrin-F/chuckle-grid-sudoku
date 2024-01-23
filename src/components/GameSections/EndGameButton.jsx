@@ -2,6 +2,16 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import EndGameModal from '../Modals/EndGameModal';
 
+const style = {
+  backgroundColor: "var(--green)",
+  borderRadius: "1rem",
+  border: "outset 0.5rem var(--green)",
+  boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+  color: "black",
+  fontFamily: "var(--fontThree)",
+  width: "max-content"
+}
+
 function EndGameButton(props) {
   const {score} = props;
   const [show, setShow] = useState(false);
@@ -16,9 +26,9 @@ function EndGameButton(props) {
     <>
     <Button
       className="mx-2"
-      variant="danger"
       onClick={handleClick}
       size="m"
+      style={style}
     >
       End Game
     </Button>

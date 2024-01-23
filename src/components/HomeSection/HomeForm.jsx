@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import Column from 'react-bootstrap/Col';
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import ChooseDifficulty from './ChooseDifficulty';
@@ -7,6 +7,27 @@ import EnterMotivation from './EnterMotivation';
 import { useState } from 'react';
 import SubmitButton from './SubmitButton';
 import { useNavigate } from 'react-router-dom';
+import Stack from 'react-bootstrap/Stack';
+
+const styles = {
+    headers: {
+        color: "var(--yellow)",
+        fontWeight: "bold",
+        fontFamily: "var(--fontThree)",
+        fontStyle: "bold",
+        // textShadow: "3px 2px 6px var(--shadow), 3px 2px 4px var(--shadow-teal)",
+        textShadow: "-1px -1px 2px rgba(255,255,255,0.5), 1px 1px 2px rgba(70,70,70,0.7)"
+    },
+    button: {
+        backgroundColor: "var(--pink)",
+        borderRadius: "1rem",
+        border: "outset 0.5rem var(--pink)",
+        boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+        color: "white",
+        fontFamily: "var(--fontTwo)",
+        width: "max-content"
+    }
+}
  
 
 function HomeForm() {
@@ -36,22 +57,21 @@ function HomeForm() {
         //go to game page
         navigate('/game');
 
-
     }
     
     
     return (
-        <Container>
-            <Row className="justify-content-center text-center">
-                <Column className="col-6">
-                    <Form>
-                        <ChooseDifficulty handleDifficultyChange={handleDifficultyChange}/>
-                        <EnterMotivation handleTextChange={handleTextChange} />
-                        <SubmitButton handleFormSubmit={handleFormSubmit}/>
-                    </Form>
-                </Column>
+        // <Container className="py-3 mb-5 px-0 mx-0">
+            <Row className="justify-content-center text-center m-0 p-0 w-100 mb-3">
+                <Col xs sm="" md="7" lg="6">
+                    <Stack direction="virtical" gap={4} as={'form'} className="p-2 m-0">
+                        <ChooseDifficulty handleDifficultyChange={handleDifficultyChange} headerStyle={styles.headers}/>
+                        <EnterMotivation handleTextChange={handleTextChange} headerStyle={styles.headers}/>
+                        <SubmitButton handleFormSubmit={handleFormSubmit} style={styles.button}/>
+                    </Stack>
+                </Col>
             </Row>
-        </Container>
+        // </Container>
     )
 }
 

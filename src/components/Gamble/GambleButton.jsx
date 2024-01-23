@@ -1,7 +1,18 @@
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import GambleModal from "../Modals/GambleModal";
+import useSound from 'use-sound';
+import GambleSound from "../ButtonSounds/GambleSound.jsx";
 
+const style = {
+  backgroundColor: "var(--pink)",
+  borderRadius: "1rem",
+  border: "outset 0.5rem var(--pink)",
+  boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+  color: "white",
+  fontFamily: "var(--fontTwo)",
+  width: "max-content"
+}
 
 function GambleButton(props) {
     const {updateScore, score, updateSudokuBoard, sudokuBoard, solution} = props;
@@ -12,9 +23,11 @@ function GambleButton(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [playSound, setPlaySound] = useState(false);
     const handleClick = () => {
       letsGamble();
       handleShow();
+      setPlaySound(true);
     }
     const letsGamble = () => {
       const random = Math.floor(Math.random() * 3); //add a 3rd option for revealing tiles + subtracting or adding points
@@ -66,13 +79,14 @@ function GambleButton(props) {
     <>
     <Button
       className="m-2"
-      variant="danger"
       onClick={handleClick}
       size="lg"
+      style={style}
     >
       Gamble
     </Button>
     <GambleModal show={show} handleClose={handleClose} score={score} gamble={gambleResult}/>
+    <GambleSound playSound={playSound} />
     </>
     
   );
