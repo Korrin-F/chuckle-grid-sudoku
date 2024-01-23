@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import NewGame from '../../pages/Game/NewGame';
+
 
 const style = {
   backgroundColor: "var(--yellow)",
@@ -24,6 +26,7 @@ function SolutionButton(props) {
     // display solution
   }
 
+
   return (
     <>
     <Button
@@ -38,5 +41,6 @@ function SolutionButton(props) {
     
   );
 }
+
 
 export default SolutionButton;
