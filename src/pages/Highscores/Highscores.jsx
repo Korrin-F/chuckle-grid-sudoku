@@ -6,7 +6,7 @@ function HighScores() {
 
 
   return (
-    <Container fluid className="mt-5 flex-grow-1">
+    <Container fluid className="pt-5 flex-grow-1">
       <HighscoresRow />
     </Container>
   );
