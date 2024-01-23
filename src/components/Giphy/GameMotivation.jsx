@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
+const style = {
+  backgroundColor: "var(--pink)",
+  borderRadius: "1rem",
+  border: "outset 0.5rem var(--pink)",
+  boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+  color: "white",
+  fontFamily: "var(--fontTwo)",
+  width: "max-content"
+}
+
 const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
   <div className={`modal fade ${showModal ? 'show' : ''}`} id="motivationModal" tabIndex={-1} role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
     <div className="modal-dialog" role="document">
@@ -75,6 +85,7 @@ const MotivationButton = ({ setMotivation, motivation }) => {
       variant="success"
       onClick={handleMotivateClick}
       size="lg"
+      style={style}
       >
         Motivate Me
       </Button>

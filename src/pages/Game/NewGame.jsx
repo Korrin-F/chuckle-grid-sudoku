@@ -7,6 +7,10 @@ import axios from "axios";
 import NewGridSection from '../../components/GameGrid/NewGridSection';
 import NewGrid from '../../components/GameGrid/NewGrid';
 
+const styles = {
+  backgroundColor: "white"
+}
+
 function NewGame() {
 
   const [score, setScore] = useState(405);
@@ -107,7 +111,7 @@ function NewGame() {
 
 
   return (
-    <Container  className="mt-2 flex-grow-1">
+    <Container fluid className="pt-2 flex-grow-1" style={styles}>
         <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
         <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
         <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
