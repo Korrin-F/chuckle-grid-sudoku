@@ -5,7 +5,7 @@ function EnterMotivation(props) {
     const {handleTextChange, headerStyle} = props;
 
     return (
-        <Stack direction="virtical" gap={2} className="" controlId="motivation">
+        <Stack direction="virtical" gap={2} className="" >
             <Form.Label><h2 style={headerStyle}>What Motivates You?</h2></Form.Label>
             <Form.Control type="text" placeholder="Enter your motivation..." name="motivation" onChange={handleTextChange} />
         </Stack>
@@ -13,3 +13,5 @@ function EnterMotivation(props) {
 }
 
 export default EnterMotivation;
+
+//controlId="motivation"
