@@ -13,9 +13,6 @@ const styles = {
     }
 };
 
-
-
-
 function NewCombiGrid(props) {
   const { sudokuBoard, updateSudokuBoard, solution } = props;
 
@@ -34,13 +31,9 @@ function NewCombiGrid(props) {
     // ... rest of your code
   }, [sudokuBoard, solution]);
  
- 
- 
   if (sudokuBoard.length === 0) {
     return null;
   }
-
-
 
   return (
     <div className='d-flex flex-column justify-content-center align-items-center w-75'>

@@ -108,7 +108,7 @@ function NewGame() {
 
   return (
     <Container  className="mt-2 flex-grow-1">
-        <AboveGameBoard score={score} />
+        <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
         <NewGridSection  sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
         <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
     </Container>
