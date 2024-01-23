@@ -9,7 +9,7 @@ import EndGameButton from './EndGameButton';
 function AboveGameBoard(props) {
     const { score, sudokuBoard, updateSudokuBoard, solution } = props;
   return (
-        <Container className="mt-4 mb-3">
+        <Container className="mt-4">
             <Row className="justify-content-end">
                 <Col className='d-flex flex-col justify-content-end col-12'>
                     <Score score={score} />

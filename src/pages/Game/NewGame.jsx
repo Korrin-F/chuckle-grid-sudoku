@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import NewGridSection from '../../components/GameGrid/NewGridSection';
 import NewGrid from '../../components/GameGrid/NewGrid';
+import Stack from 'react-bootstrap/Stack';
 
 const styles = {
   backgroundColor: "white"
@@ -138,9 +139,11 @@ function NewGame() {
   return (
 
     <Container fluid className="pt-2 flex-grow-1" style={styles}>
+      <Stack gap={2}>
         <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
         <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution} updateSolution={updateSolution}/>
         <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
+      </Stack>
     </Container>
     )
 }
