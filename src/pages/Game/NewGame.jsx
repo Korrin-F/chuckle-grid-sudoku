@@ -70,7 +70,7 @@ function NewGame() {
 
       const options = {
         method: 'GET',
-        url: 'https://sudoku-board.p//.rapidapi.com/new-board',
+        url: 'https://sudoku-board.p.rapidapi.com/new-board',
         params: {
           diff: storedDifficulty,
           stype: 'list',
