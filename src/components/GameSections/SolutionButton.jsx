@@ -26,7 +26,6 @@ function SolutionButton(props) {
     // display solution
   }
 
-
   return (
     <>
     <Button
