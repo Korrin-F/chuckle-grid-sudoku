@@ -1,17 +1,29 @@
-import React, { useEffect } from 'react';
-import useSound from 'use-sound';
+import React, { useEffect, useRef } from 'react';
+import { Howl, Howler } from 'howler';
 import highScoresSound from '../../sounds/we-are-the-champions.mp3';
 
 const HighScoresSound = ({ playSound }) => {
-  const [play, { stop }] = useSound(highScoresSound);
+  const sound = useRef(null);
+
+  useEffect(() => {
+    sound.current = new Howl({
+      src: [highScoresSound],
+    });
+
+    return () => {
+      if (sound.current) {
+        sound.current.unload();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (playSound) {
-      play();
+      sound.current.play();
     } else {
-      stop(); // Stop the sound when playSound is false
+      sound.current.stop();
     }
-  }, [playSound, play, stop]);
+  }, [playSound]);
 
   return null;
 };

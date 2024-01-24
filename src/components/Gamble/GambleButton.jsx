@@ -22,11 +22,11 @@ function GambleButton(props) {
     buttonText: "",
   });
   const [show, setShow] = useState(false);
-  const [amountToReveal, setAmountToReveal] = useState(0); // Declare amountToReveal
+  const [amountToReveal, setAmountToReveal] = useState(0);
+  const [soundKey, setSoundKey] = useState(0); // adds a state to control the key prop :-)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
 
   const handleClick = () => {
     letsGamble();
@@ -37,7 +37,6 @@ function GambleButton(props) {
     const random = Math.floor(Math.random() * 3);
     const randomAmount = Math.floor(Math.random() * 5) + 5;
 
-    // Set the amountToReveal
     setAmountToReveal(randomAmount);
 
     if (random === 0) {
@@ -80,7 +79,9 @@ function GambleButton(props) {
   };
 
   const playAudio = (soundType) => {
-    // ... (unchanged)
+
+    // Update the key to force the re-render of the sound component to make trigger on multiple clicks
+    setSoundKey((prevKey) => prevKey + 1);
   };
 
   return (
@@ -89,9 +90,15 @@ function GambleButton(props) {
         Gamble
       </Button>
       <GambleModal show={show} handleClose={handleClose} score={score} gamble={gambleResult} />
-      {gambleResult.text === `You revealed ${amountToReveal} tiles!` && <RevealTilesSound playSound={true} />}
-      {gambleResult.text === "You lost 50 points!" && <LosePointsSound playSound={true} />}
-      {gambleResult.text === "You gained 50 points!" && <GainPointsSound playSound={true} />}
+      {gambleResult.text === `You revealed ${amountToReveal} tiles!` && (
+        <RevealTilesSound key={soundKey} playSound={true} />
+      )}
+      {gambleResult.text === "You lost 50 points!" && (
+        <LosePointsSound key={soundKey} playSound={true} />
+      )}
+      {gambleResult.text === "You gained 50 points!" && (
+        <GainPointsSound key={soundKey} playSound={true} />
+      )}
     </>
   );
 }
