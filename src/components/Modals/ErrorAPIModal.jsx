@@ -2,7 +2,11 @@ import ErrorModalText from './ErrorModalText';
 import React from 'react';
 
 const errorApiModal = (props) => {
-    const {closeModal} = props;
+    const {closeModal, isOpen} = props;
+
+    if (!isOpen) {
+      return null;
+    }
     
   return (
     <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -17,9 +21,6 @@ const errorApiModal = (props) => {
             <div className="modal-body">
                 <ErrorModalText />
             </div>
-            {/* <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={closeModal}>Close</button>
-            </div> */}
         </div>
     </div>
 </div>
