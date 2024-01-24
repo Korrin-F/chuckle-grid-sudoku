@@ -8,7 +8,7 @@ function UnderGameBoard(props) {
     const {updateScore, score, updateSudokuBoard, sudokuBoard, solution } = props;
   return (
         // <Container className="mt-4 mb-5">
-            <Row className="justify-content-center">
+            <Row className="justify-content-center mb-5">
                 <Col className='d-flex flex-col justify-content-start col-3'>
                     <GambleButton score={score} updateScore={updateScore} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
                 </Col>

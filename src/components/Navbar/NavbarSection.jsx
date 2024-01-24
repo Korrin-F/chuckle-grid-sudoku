@@ -19,47 +19,40 @@ const styles = {
     boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
     color: "white",
     fontFamily: "var(--fontThree)",
+  },
+  buttonContainer: {
+    position: "relative", 
+    zIndex: "2", 
+    height: "min-content" 
+  },
+  logoContainer: {
+    position: "absolute",
+    zIndex: "1",
+    width: "100%"
   }
 }
 
 const logo = {
-
   global: {
-    position: "absolute",
-    zIndex: "1",
-    width: "100%"
-    // margin: "0 auto",
-    // display: "flex"
+    position: 'relative',
   },
-
-  left: {
-    small: {
-
-    },
-    medium: {
-
-    },
-    large: {
-      bottom: "-2.5rem",
-      left: "2rem",
-    }
+  xsmall: {
+    bottom: "-9rem",
   },
-
-  center: {
-    global: {
-      left: "50%",
-      transform: "translateX(-50%)",
-    },
-    small: {
-      bottom: "-2.5rem",
-    },
-    medium: {
-      bottom: "-4.5rem",
-      // width: "10rem",
-    },
-    large: {
-      bottom: "-4.5rem",
-    }
+  small: {
+    bottom: "-9rem",
+  },
+  medium: {
+    bottom: "-4rem",
+  },
+  large: {
+    bottom: "-4.75rem",
+  },
+  xlarge: {
+    bottom: "-5rem",
+  },
+  xxlarge: {
+    bottom: "-5.5rem",
   }
 }
 
@@ -67,61 +60,38 @@ const logo = {
 
 function NavbarSection() {
 
-  const location = useLocation();
-  const [logoStyle, setLogoStyle] = useState('');
-  let newLogoStyle = {};
+  // const location = useLocation();
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  // const [logoStyle, setLogoStyle] = useState('');
+  // let newLogoStyle = {};
+
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth);
+  };
 
   useEffect(() => {
-    // adjust styling of logo based on screen size and app page
+    window.addEventListener('resize', handleResize);
 
-    const getLogoStyle = () => {
-      const screenWidth = window.innerWidth;
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+    
+  }, []);
 
-      switch (location.pathname) {
-        case '/':
-          newLogoStyle = {
-            ...logo.center.global,
-            ...(
-              screenWidth < 576 ? logo.center.small :
-              screenWidth < 768 ? logo.center.medium :
-              logo.center.large
-            ),
-          };
-          break;
-        case '/game':
-          newLogoStyle = {
-            ...logo.left,
-            ...(
-              screenWidth < 576 ? logo.left.small :
-              screenWidth < 768 ? logo.left.medium :
-              logo.left.large
-            ),
-          };
-          break;
-        // default:
-        //   setLogoStyle(
-        //     screenWidth < 576 ? logo.global.small :
-        //     screenWidth < 768 ? logo.global.medium :
-        //     logo.global.large
-        //   );
-      }
-    }
-
-    setLogoStyle(newLogoStyle);
-    getLogoStyle();
-
-  }, [location.pathname]); // Re-run the effect when the location changes
-
-  const navBarBrand = {
-    position: 'relative',
-    top: "5rem"
-  }
+  const newLogoStyle = {
+    ...logo.global,
+    ...(screenWidth >= 1400 ? logo.xxlarge :
+      screenWidth >= 1200 ? logo.xlarge :
+      screenWidth >= 992 ? logo.large :
+      screenWidth >= 768 ? logo.medium :
+      screenWidth >= 576 ? logo.small :
+      logo.xsmall),
+  };
 
   return (
 
-      <Navbar className="" style={styles}>
-        <Container 
-        style={{position: "relative", zIndex: "2", height: "min-content" }}>
+      <Navbar style={styles}>
+        <Container style={styles.buttonContainer}>
         <Row className='w-100 align-items-center m-0 p-0'>
             <Col className='col-6 d-flex flex-col justify-content-start p-3'>
               <InstructionsBTN style={styles.navButtons}/>
@@ -131,10 +101,10 @@ function NavbarSection() {
             </Col>
         </Row>
         </Container>
-        <Container fluid className="p-0 m-0"style={logo.global}>
+        <Container fluid className="p-0 m-0"style={styles.logoContainer}>
         <Row  className="w-100 p-0 m-0 justify-content-center">
-          <Col className="col-5 d-flex flex-column justify-content-center">
-            <Navbar.Brand className="mx-auto pt-2" style={navBarBrand} >          
+          <Col className="col-12 col-sm-7 col-md-6  d-flex flex-column justify-content-center">
+            <Navbar.Brand className="mx-auto p-2" style={newLogoStyle} >          
               <Link to="/" > 
                 <Logo /> 
               </Link>
@@ -145,6 +115,6 @@ function NavbarSection() {
       </Navbar>
 
   );
-}
+  }
 
 export default NavbarSection;
