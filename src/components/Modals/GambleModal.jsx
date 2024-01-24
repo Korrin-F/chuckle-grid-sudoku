@@ -4,28 +4,49 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import SubmitButton from '../HomeSection/SubmitButton';
 import SaveName from '../GameSections/SaveName';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-function GambleModal(props) {
-    const { score, handleClose, show, gamble } = props;
-    const {text, buttonText} = gamble;
+const GambleModal = ({ show, handleClose, score, gamble, fetchedContent }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const modalRef = useRef(null);
 
-    
-    return (
-        <Modal show={show} onHide={handleClose} className="text-center">
-        <Modal.Header closeButton>
-          {/* <Modal.Title>Modal heading</Modal.Title> */}
-        </Modal.Header>
-        <Modal.Body>
-            <h4>{text}</h4>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                {buttonText}
-            </Button>
-        </Modal.Footer>
-      </Modal>
-    )
-}
+  useEffect(() => {
+    // Reset the imageLoaded state when the modal is shown
+    setImageLoaded(false);
+  }, [show]);
+
+  const handleImageLoad = () => {
+    // Set imageLoaded to true when the image has loaded
+    setImageLoaded(true);
+  };
+
+  return (
+    <Modal show={show} onHide={handleClose} ref={modalRef}>
+      <Modal.Header closeButton>
+        <Modal.Title>Gamble Modal</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>{gamble.text}</p>
+        <p>Score: {score}</p>
+        {/* Display fetched content */}
+        {fetchedContent && (
+          <div style={{ maxWidth: '100%', maxHeight: '400px', overflow: 'hidden' }}>
+            <img
+              src={fetchedContent}
+              alt="Fetched Gif"
+              style={{ width: '100%', height: 'auto' }}
+              onLoad={handleImageLoad}
+            />
+          </div>
+        )}
+      </Modal.Body>
+      <Modal.Footer>
+        <button className="btn btn-secondary" onClick={handleClose} disabled={!imageLoaded}>
+          Close
+        </button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
 export default GambleModal;
