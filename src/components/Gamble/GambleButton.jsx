@@ -4,6 +4,11 @@ import GambleModal from "../Modals/GambleModal";
 import RevealTilesSound from "../ButtonSounds/RevealTileSound";
 import LosePointsSound from "../ButtonSounds/LosePointsSound";
 import GainPointsSound from "../ButtonSounds/GainPointsSound";
+import sadFetch from "../Giphy/GambleFetch/SadFetch.jsx"; 
+import celebrateFetch from "../Giphy/GambleFetch/CelebrateFetch";
+import happyFetch from "../Giphy/GambleFetch/HappyFetch";
+
+
 
 const style = {
   backgroundColor: "var(--pink)",
@@ -16,24 +21,31 @@ const style = {
 };
 
 function GambleButton(props) {
-  const { updateScore, score, updateSudokuBoard, sudokuBoard, solution } = props;
+  const {
+    updateScore,
+    score,
+    updateSudokuBoard,
+    sudokuBoard,
+    solution,
+  } = props;
   const [gambleResult, setGambleResult] = useState({
     text: "",
     buttonText: "",
   });
   const [show, setShow] = useState(false);
   const [amountToReveal, setAmountToReveal] = useState(0);
-  const [soundKey, setSoundKey] = useState(0); // adds a state to control the key prop :-)
+  const [fetchedContent, setFetchedContent] = useState(null);
+  const [soundKey, setSoundKey] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleClick = () => {
-    letsGamble();
+    handleGamble();
     handleShow();
   };
 
-  const letsGamble = () => {
+  const handleGamble = async () => {
     const random = Math.floor(Math.random() * 3);
     const randomAmount = Math.floor(Math.random() * 5) + 5;
 
@@ -46,6 +58,8 @@ function GambleButton(props) {
       });
       updateScore(-50);
       playAudio("losePointsSound");
+      const sadGifs = await sadFetch();
+      setFetchedContent(sadGifs);
     } else if (random === 1) {
       setGambleResult({
         text: "You gained 50 points!",
@@ -53,6 +67,8 @@ function GambleButton(props) {
       });
       updateScore(50);
       playAudio("gainPointsSound");
+      const happyGifs = await happyFetch();
+      setFetchedContent(happyGifs);
     } else {
       revealTiles(randomAmount);
       setGambleResult({
@@ -60,6 +76,8 @@ function GambleButton(props) {
         buttonText: "Cool!",
       });
       playAudio("revealTilesSound");
+      const celebrateGifs = await celebrateFetch();
+      setFetchedContent(celebrateGifs);
     }
   };
 
@@ -79,8 +97,6 @@ function GambleButton(props) {
   };
 
   const playAudio = (soundType) => {
-
-    // Update the key to force the re-render of the sound component to make trigger on multiple clicks
     setSoundKey((prevKey) => prevKey + 1);
   };
 
@@ -89,7 +105,13 @@ function GambleButton(props) {
       <Button className="m-2" onClick={handleClick} size="lg" style={style}>
         Gamble
       </Button>
-      <GambleModal show={show} handleClose={handleClose} score={score} gamble={gambleResult} />
+      <GambleModal
+        show={show}
+        handleClose={handleClose}
+        score={score}
+        gamble={gambleResult}
+        fetchedContent={fetchedContent}
+      />
       {gambleResult.text === `You revealed ${amountToReveal} tiles!` && (
         <RevealTilesSound key={soundKey} playSound={true} />
       )}
