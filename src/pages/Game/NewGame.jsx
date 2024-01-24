@@ -124,7 +124,7 @@ function NewGame() {
 
       } catch (error) {
         setIsErrorModalOpen(true);
-        setErrorModalMessage(error.errorModalMessage || 'An error occurred');
+        setErrorModalMessage('An error occurred');
      }
       
     }
@@ -139,8 +139,6 @@ function NewGame() {
 
     
   }, [apiCalled]);
-
-
 
   return (
 
