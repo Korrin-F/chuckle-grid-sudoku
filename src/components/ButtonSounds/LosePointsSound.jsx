@@ -1,4 +1,3 @@
-// LosePointsSound.jsx
 import React, { useEffect } from 'react';
 import LosePointsSoundFile from '../../sounds/LosePointsSound.mp3';
 
