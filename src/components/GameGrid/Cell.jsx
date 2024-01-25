@@ -1,12 +1,19 @@
 import React from 'react';
 
 function Cell(props) {
-  const { id, value,sudokuBoard, updateSudokuBoard, fontSize } = props;
+  const { id, value, sudokuBoard, updateSudokuBoard, fontSize , backgroundColor} = props;
+
 
   const handleInputChange = (event) => {
-    const newInputValue = event.target.value.slice(0, 1);
-    console.log(`Cell Input Change: ${newInputValue} for ${id}`);
-    updateCell(id, newInputValue);
+    const inputValue = event.target.value;
+  
+    // Used a regular expression to check if the entered value is a number from 1 to 9
+    if (/^[1-9]$/.test(inputValue)) {
+      updateCell(id, inputValue);
+    } else if (inputValue === '') {
+      // If the input is an empty string, it means the user clicked off the cell without entering anything
+      updateCell(id, 0); // Assuming 0 represents an empty cell in your logic
+    }
   };
 
   const updateCell = (id, value) => { //updates the sudokuBoard state with the new input value that the user enters into any cell
@@ -75,13 +82,13 @@ function Cell(props) {
     return [top, right, bottom, left]
   }
 
-  const handleBackgroundColor = () => {
-    return "white";
-  }
+  // const handleBackgroundColor = () => {
+  //   return "white";
+  // }
 
   const createStyle = (id) => {
       const borderStyle = handleBorderStyle(id); // top, right, bottom, left
-      const backgroundColor = handleBackgroundColor();
+      // const backgroundColor = handleBackgroundColor();
       return {
         display: 'block',
         fontSize: fontSize,
