@@ -112,7 +112,7 @@ Visit http://localhost:<#number> to view the app in your browser.
 
 Upon loading you can click on 'Home' and see the home page, as shown below. 
 
-![Landing area](./src/assets/images/landing-area-react.png)
+![Landing area](./src/assets/images/screenshots/Screenshot-landing-area.png)
 
 Use the buttons in the navigation bar to explore the pages, as shown in the below images.
 
