@@ -58,7 +58,7 @@ const GambleModal = ({ show, handleClose, score, gamble, fetchedContent }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}  >
+    <Modal show={show} onHide={handleClose} ref={modalRef} >
 
       <Modal.Header  style={{...style.global, ...style.header}}>
       </Modal.Header>
@@ -77,7 +77,7 @@ const GambleModal = ({ show, handleClose, score, gamble, fetchedContent }) => {
           </div>
         )}
       </Modal.Body>
-      
+
       <Modal.Footer style={{...style.global, ...style.footer}}>
         <Button 
            size="lg"

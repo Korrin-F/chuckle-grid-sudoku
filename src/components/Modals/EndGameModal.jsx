@@ -5,6 +5,42 @@ import SubmitButton from '../HomeSection/SubmitButton';
 import SaveName from '../GameSections/SaveName';
 import { useState } from 'react';
 
+const style = {
+    global: {
+      backgroundColor: "var(--teal)",
+      borderColor: "var(--teal)",
+    },
+    header: {
+  
+    },
+    body: {
+      fontFamily: "var(--fontFour)",
+    },
+    footer: {
+      display: "flex",
+      justifyContent: "center",
+    },
+    imageCont: {
+      maxWidth: '100%',
+      maxHeight: '400px',
+      overflow: 'hidden',
+      border: 'medium solid var(--yellow)',
+      backgroundColor: 'var(--orange)',
+      borderRadius: '1rem',
+    },
+    button: {
+      backgroundColor: "var(--yellow)",
+      borderRadius: "1rem",
+      border: "outset 0.5rem var(--yellow)",
+      boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+      color: "black",
+      fontFamily: "var(--fontTwo)",
+      width: "max-content"
+    }
+  
+  }
+
+
 function EndGameModal(props) {
     const { score, handleClose, show } = props;
     const [name, setName] = useState('Mystery'); //default mystery
@@ -46,17 +82,16 @@ function EndGameModal(props) {
     }
     
     return (
-        <Modal show={show} onHide={handleClose} className="text-center">
-        <Modal.Header closeButton>
-          {/* <Modal.Title>Modal heading</Modal.Title> */}
+        <Modal show={show} onHide={handleClose} >
+        <Modal.Header style={{...style.global, ...style.header}} >
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{...style.global, ...style.body}} className="text-center">
             <Form>
                 <SaveName handleTextChange={handleTextChange} score={score}/>
             </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <SubmitButton handleFormSubmit={handleSave}/>
+        <Modal.Footer  style={{...style.global, ...style.footer}}>
+          <SubmitButton handleFormSubmit={handleSave} name="Save" style={style.button}/>
         </Modal.Footer>
       </Modal>
     )
