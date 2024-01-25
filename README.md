@@ -9,7 +9,7 @@
 #### Caroline 
 
 - **GitHub:** [Cazbella](https://github.com/Cazbella)
-- **Email:** cazbella@myyahoo.co.uk
+- **LinkedIn:** [Caroline-Lane](https://www.linkedin.com/in/caroline-lane7/) 
 
 #### Korrin
 
