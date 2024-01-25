@@ -67,11 +67,8 @@ The motivation behind this project was to create a Sudoku game that could also b
 
 ### Challenges
 
+It was a challenge to map the api result to the grid. The api was also tempremental at times! Getting to grips with state was important for the sounds and we still have improvements to make here. 
 
-
-### Credit
-
-We had help from 
 
 ## Installation
 Installation:
@@ -114,15 +111,21 @@ Upon loading you can click on 'Home' and see the home page, as shown below.
 
 ![Landing area](./src/assets/images/screenshots/Screenshot-landing-area.png)
 
-Use the buttons in the navigation bar to explore the pages, as shown in the below images.
+Here you can choose your difficulty and also 'set your motivation' - you will see how this is used on the next screen!
 
-Grid Page
+![Landing area](./src/assets/images/screenshots/Screenshot-grid.png)
 
-![Page](./src/assets/images/NAME.png)
+Type your numbers within the tiles. If you want to gamble, press the gamble button! You may lose points though, as shown below!
 
-High Scores PAge...
+![Page](./src/assets/images/screenshots/Screenshot-modal2.png)
 
+![Page](./src/assets/images/screenshots/Screenshot-modal.png)
 
+The motivation gives you some motivation based on the input from the home screen. 
+
+You can save your score and it will display on the high scores page
+
+![Page](./src/assets/images/screenshots/Screenshot-highscores.png)
 
 ## Contributing
 Contributions to this project are welcome and encouraged! If you have ideas for new features, find a bug, or want to improve the documentation, feel free to contribute. To contribute to the project fork the repository on GitHub. Clone your forked repository to your local machine. Create a new branch with a descriptive name for your contribution: git checkout -b feature/new-feature or git checkout -b bug/fix-bug. Then make your changes and commit them with a clear message. Push your changes to your forked repository and open a pull request in the main repository with a detailed description of your changes. Please follow the project's coding style and adhere to the existing conventions. By contributing, you agree that your contributions will be licensed under the project's license. Thank you for helping make our project better!
