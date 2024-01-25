@@ -61,17 +61,17 @@ function HomeForm() {
     
     
     return (
-        // <Container className="py-3 mb-5 px-0 mx-0">
+  
             <Row className="justify-content-center text-center m-0 p-0 w-100 mb-3">
-                <Col xs sm={9} md={7} lg={5} xxl={3}>
+                <Col xs sm={9} md={7} lg={5} xxl={4}>
                     <Stack direction="virtical" gap={4} as={'form'} className="p-2 m-0">
                         <ChooseDifficulty handleDifficultyChange={handleDifficultyChange} headerStyle={styles.headers}/>
                         <EnterMotivation handleTextChange={handleTextChange} headerStyle={styles.headers}/>
-                        <SubmitButton handleFormSubmit={handleFormSubmit} style={styles.button}/>
+                        <SubmitButton handleFormSubmit={handleFormSubmit} style={styles.button} name="Let's Play!"/>
                     </Stack>
                 </Col>
             </Row>
-        // </Container>
+
     )
 }
 
