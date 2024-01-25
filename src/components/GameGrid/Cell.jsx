@@ -85,6 +85,7 @@ function Cell(props) {
       return {
         display: 'block',
         fontSize: fontSize,
+        fontFamily: 'var(--fontFour)',
         lineHeight: 'auto',
         borderTop: borderStyle[0],
         borderRight: borderStyle[1],
