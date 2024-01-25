@@ -1,7 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
 import NewGame from '../../pages/Game/NewGame';
-
+import EndGameSound from '../ButtonSounds/EndGameSound';
 
 const style = {
   backgroundColor: "var(--yellow)",
@@ -13,29 +13,36 @@ const style = {
   width: "max-content"
 }
 
+
 function SolutionButton(props) {
-  const {sudokuBoard, updateSudokuBoard, solution} = props;
+  const { sudokuBoard, updateSudokuBoard, solution } = props;
+  const [show, setShow] = useState(false);
+  const [playSound, setPlaySound] = useState(false);  // State to manage sound playing
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleClick = () => {
-
     updateSudokuBoard(solution);
+    setPlaySound(true);  // Trigger sound to play
+    handleShow();
+  };
 
-  }
+
 
   return (
     <>
-    <Button
-      className=""
-      onClick={handleClick}
-      size="m"
-      style={style}
-    >
-      Solution
-    </Button>
+      <Button
+        className=""
+        onClick={handleClick}
+        size="m"
+        style={style}
+      >
+        Solution
+      </Button>
+      <EndGameSound playSound={playSound} />
     </>
-    
   );
 }
-
 
 export default SolutionButton;
