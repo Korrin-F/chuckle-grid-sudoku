@@ -34,6 +34,7 @@ function HomeForm() {
     const [searched, setSearched] = useState('cats'); //default cats
     const [difficulty, setDifficulty] = useState('1'); //default 1 (easy)
     const navigate = useNavigate(); //for navigation
+    const [playSound, setPlaySound] = useState(false);
 
     const handleDifficultyChange = (event) => {
         setDifficulty(event.target.value);
@@ -42,6 +43,14 @@ function HomeForm() {
     const handleTextChange = (event) => {
         setSearched(event.target.value);
     }
+
+    const handleSoundEndend = (bool) => {
+        setPlaySound(true);
+      }
+      const handleSoundPlayed = () => {
+        setPlaySound(false);
+      }
+
     const handleFormSubmit = (event) => {
         //took this off to get sound to work.
         // event.preventDefault();
@@ -56,6 +65,7 @@ function HomeForm() {
             setDifficulty('1');
         });
         //go to game page
+        handleSoundEndend();
         navigate('/game');
 
     }
@@ -68,7 +78,7 @@ function HomeForm() {
                     <Stack direction="virtical" gap={4} as={'form'} className="p-2 m-0">
                         <ChooseDifficulty handleDifficultyChange={handleDifficultyChange} headerStyle={styles.headers}/>
                         <EnterMotivation handleTextChange={handleTextChange} headerStyle={styles.headers}/>
-                        <SubmitButton handleFormSubmit={handleFormSubmit} style={styles.button} name="Let's Play!"/>
+                        <SubmitButton handleFormSubmit={handleFormSubmit} style={styles.button} name="Let's Play!" playSound={playSound} handleSoundPlayed={handleSoundPlayed}/>
                     </Stack>
                 </Col>
             </Row>

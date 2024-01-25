@@ -36,6 +36,9 @@ function NewGame(props) {
   const updateSudokuBoard = (newSudokuBoard) => {
     setSudokuBoard(newSudokuBoard);
   };
+  const updateBoardColors = (newBoardColors) => {
+    setBoardColors(newBoardColors);
+  };
 
   useEffect(() => {
     // const tempBoard = [
@@ -93,13 +96,22 @@ function NewGame(props) {
         const solutionData = response.data.response['solution'];
 
         if (isMounted) {
+            
+
             updateSolution(solutionData);
             // setUnsolvedDataSudoku(unsolvedData);
             updateSudokuBoard(unsolvedData);
+        
             // Set apiCalled to true to prevent further API calls
             setApiCalled(true);
 
             if (unsolvedData.length > 0) {
+                // handles the board colors
+                const newBoardColors = unsolvedData.map(row =>
+                row.map(cell => (cell !== 0 ? "var(--orange)" : "white"))
+                );
+                // create the board colors array
+                updateBoardColors(newBoardColors);
                 // Store unsolvedDataSudoku in local storage
                 localStorage.setItem("unsolvedDataSudoku", JSON.stringify(unsolvedData));
                 // Flatten the 2D array into a 1D array
@@ -120,6 +132,7 @@ function NewGame(props) {
                 // temporary local storage that should be replaced with the actual solutions array from the API
         
                 localStorage.setItem("solutions", JSON.stringify(solutionData));
+                console.log("Board Colors:", boardColors);
               }
         }
 
@@ -146,8 +159,8 @@ function NewGame(props) {
     <Container fluid className="pt-5 mt-5  flex-grow-1" style={styles}>
       <Stack gap={2} className="pt-5 mt-3 pt-md-0 mt-md-0 pt-xl-4 pt-xxl-0">
         <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
-        <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution} updateSolution={updateSolution} screenWidth={screenWidth}/>
-        <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
+        <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution} updateSolution={updateSolution} screenWidth={screenWidth} boardColors={boardColors}/>
+        <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution} boardColors={boardColors} updateBoardColors={updateBoardColors}/>
 
         <ErrorAPIModal
         isOpen={isErrorModalOpen}

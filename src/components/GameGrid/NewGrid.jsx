@@ -23,7 +23,7 @@ const styles = {
 };
 
 function NewGrid(props) {
-  const { sudokuBoard, updateSudokuBoard, solution, updateSolution, screenWidth } = props;
+  const { sudokuBoard, updateSudokuBoard, solution, updateSolution, screenWidth, boardColors } = props;
   console.log("New Grid Screen Width:", screenWidth);
 
   useEffect(() => {
@@ -55,6 +55,7 @@ function NewGrid(props) {
               // updateCell={updateCell}
               sudokuBoard={sudokuBoard}
               updateSudokuBoard={updateSudokuBoard}
+              backgroundColor={boardColors[rowIndex][colIndex]}
             />
           ))
         ))}

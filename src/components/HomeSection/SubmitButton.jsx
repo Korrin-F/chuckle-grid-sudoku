@@ -3,27 +3,29 @@ import Button from 'react-bootstrap/Button';
 import StartSound from '../ButtonSounds/StartSound';
 
 function SubmitButton(props) {
-  const { handleFormSubmit, style, name } = props;
-  const [playSound, setPlaySound] = useState(false);
+  const { handleFormSubmit, style, name, playSound, handleSoundPlayed  } = props;
+  // const [playSound, setPlaySound] = useState(false);
 
-  const handleButtonClick = () => {
-    setPlaySound(true);
-  };
+  
+  // const handleButtonClick = () => {
+  //   setPlaySound(true);
+  // };
 
   useEffect(() => {
     if (playSound) {
-      const soundEnded = () => {
-        setPlaySound(false);
-        handleFormSubmit();
-      };
+      // const soundEnded = () => {
+      //   // handleSound(false);
+      //   handleSoundPlayed();
+      //   handleFormSubmit();
+      // };
 
       const audio = new Audio();
       audio.src = '/src/sounds/lets-go.mp3'; 
-      audio.addEventListener('ended', soundEnded);
+      audio.addEventListener('ended', handleSoundPlayed);
       audio.play();
 
       return () => {
-        audio.removeEventListener('ended', soundEnded);
+        audio.removeEventListener('ended', handleSoundPlayed);
       };
     }
   }, [playSound, handleFormSubmit]);
@@ -32,7 +34,7 @@ function SubmitButton(props) {
     <>
       <Button
         className="m-auto mt-2 mb-4"
-        onClick={handleButtonClick}
+        onClick={handleFormSubmit}
         size="lg"
         style={style}
       >
