@@ -78,7 +78,7 @@ function NavbarSection(props) {
           <Col className="d-flex flex-col justify-content-between"
           xs={12}
           lg={10}
-          xxl={7}
+          xxl={8}
           >
             <InstructionsBTN style={styles.navButtons}/>
             <HighscoresBTN style={styles.navButtons}/>
