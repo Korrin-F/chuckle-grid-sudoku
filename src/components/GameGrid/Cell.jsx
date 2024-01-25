@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Cell(props) {
-  const { id, value,sudokuBoard, updateSudokuBoard } = props;
+  const { id, value,sudokuBoard, updateSudokuBoard, fontSize } = props;
 
   const handleInputChange = (event) => {
     const newInputValue = event.target.value.slice(0, 1);
@@ -84,14 +84,15 @@ function Cell(props) {
       const backgroundColor = handleBackgroundColor();
       return {
         display: 'block',
-        fontSize: '1.5rem',
+        fontSize: fontSize,
         lineHeight: 'auto',
         borderTop: borderStyle[0],
         borderRight: borderStyle[1],
         borderBottom: borderStyle[2],
         borderLeft: borderStyle[3],
         backgroundColor: backgroundColor,
-        borderRadius: 0
+        borderRadius: 0,
+        padding: 0,
       }
   }
 
