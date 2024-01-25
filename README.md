@@ -14,12 +14,12 @@
 #### Korrin
 
 - **GitHub:** [Korrin-F](https://github.com/Korrin-F)
-- **LinkedIn:** [korrin-franklin](https://www.linkedin.com/in/korrin-franklin/) 
+- **LinkedIn:** [Korrin-Franklin](https://www.linkedin.com/in/korrin-franklin/) 
 
 #### Gabriel
 
-- **GitHub:** https://github.com/M4r1aN24
-- **Email:** https://www.linkedin.com/in/gabriel-pamfil-28a449236/
+- **GitHub:** [Gabriel](https://github.com/M4r1aN24)
+- **Email:** [Gabriel-Pamfil](https://www.linkedin.com/in/gabriel-pamfil-28a449236/)
 
 
 
