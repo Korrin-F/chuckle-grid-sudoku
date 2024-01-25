@@ -103,7 +103,7 @@ function NavbarSection() {
         </Container>
         <Container fluid className="p-0 m-0"style={styles.logoContainer}>
         <Row  className="w-100 p-0 m-0 justify-content-center">
-          <Col className="col-12 col-sm-7 col-md-6  d-flex flex-column justify-content-center">
+          <Col className="col-11 col-sm-8 col-md-6  d-flex flex-column justify-content-center">
             <Navbar.Brand className="mx-auto p-2" style={newLogoStyle} >          
               <Link to="/" > 
                 <Logo /> 
