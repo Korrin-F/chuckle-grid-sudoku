@@ -14,7 +14,8 @@ const styles = {
   backgroundColor: "white"
 }
 
-function NewGame() {
+function NewGame(props) {
+  const { screenWidth } = props;
 
   const [score, setScore] = useState(405);
   const [sudokuBoard, setSudokuBoard] = useState([]);
@@ -145,7 +146,7 @@ function NewGame() {
     <Container fluid className="pt-5 mt-5  flex-grow-1" style={styles}>
       <Stack gap={2} className="pt-5 mt-3 pt-md-0 mt-md-0 pt-xl-4">
         <AboveGameBoard score={score} sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution}/>
-        <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution} updateSolution={updateSolution}/>
+        <NewGrid sudokuBoard={sudokuBoard} updateSudokuBoard={updateSudokuBoard} solution={solution} updateSolution={updateSolution} screenWidth={screenWidth}/>
         <UnderGameBoard updateScore={updateScore} score={score} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
 
         <ErrorAPIModal

@@ -21,23 +21,10 @@ const styles = {
 
   }
 };
-// 300 xs   font 1 
-// 500 - lg
+
 function NewGrid(props) {
-  const { sudokuBoard, updateSudokuBoard, solution, updateSolution } = props;
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  const handleResize = () => {
-    setScreenWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const { sudokuBoard, updateSudokuBoard, solution, updateSolution, screenWidth } = props;
+  console.log("New Grid Screen Width:", screenWidth);
 
   useEffect(() => {
     console.log("Sudoku Board Updated:", sudokuBoard);

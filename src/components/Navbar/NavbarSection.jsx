@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import Logo from './Logo';
 import InstructionsBTN from './InstructionsBTN';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -58,23 +56,9 @@ const logo = {
 
 
 
-function NavbarSection() {
-
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-
-  const handleResize = () => {
-    setScreenWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-    
-  }, []);
+function NavbarSection(props) {
+  const { screenWidth } = props;
+  console.log("Navbar Screen Width:", screenWidth);
 
   const newLogoStyle = {
     ...logo.global,
@@ -90,18 +74,27 @@ function NavbarSection() {
 
       <Navbar style={styles}>
         <Container style={styles.buttonContainer}>
-        <Row className='w-100 align-items-center m-0 p-0'>
-            <Col className='col-6 d-flex flex-col justify-content-start p-3'>
-              <InstructionsBTN style={styles.navButtons}/>
-            </Col>
-            <Col className='col-6 d-flex flex-col justify-content-end p-3'>
-              <HighscoresBTN style={styles.navButtons}/>
-            </Col>
+        <Row className='w-100 align-items-center justify-content-center m-0 p-0 py-1'>
+          <Col className="d-flex flex-col justify-content-between"
+          xs={12}
+          lg={10}
+          xxl={7}
+          >
+            <InstructionsBTN style={styles.navButtons}/>
+            <HighscoresBTN style={styles.navButtons}/>
+          </Col>
+
         </Row>
         </Container>
         <Container fluid className="p-0 m-0"style={styles.logoContainer}>
         <Row  className="w-100 p-0 m-0 justify-content-center">
-          <Col className="col-11 col-sm-8 col-md-6  d-flex flex-column justify-content-center">
+          <Col className="d-flex flex-column justify-content-center"
+          xs={11}
+          sm={8}
+          md={6}
+          xl={5}
+          xxl={4}
+          >
             <Navbar.Brand className="mx-auto p-2" style={newLogoStyle} >          
               <Link to="/" > 
                 <Logo /> 
