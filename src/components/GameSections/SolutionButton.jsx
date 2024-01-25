@@ -9,7 +9,7 @@ const style = {
   border: "outset 0.5rem var(--yellow)",
   boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
   color: "black",
-  fontFamily: "var(--fontThree)",
+  fontFamily: "var(--fontTwo)",
   width: "max-content"
 }
 

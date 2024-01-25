@@ -110,10 +110,7 @@ const MotivationButton = ({ setMotivation, motivation }) => {
 
 const GameMotivation = ({ setMotivation, motivation }) => {
   return (
-    <div>
-      {/* Include MotivationButton and MotivationModal */}
       <MotivationButton setMotivation={setMotivation} motivation={motivation} />
-    </div>
   );
 };
 
