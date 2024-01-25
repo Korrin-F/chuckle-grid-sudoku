@@ -43,7 +43,8 @@ function HomeForm() {
         setSearched(event.target.value);
     }
     const handleFormSubmit = (event) => {
-        event.preventDefault();
+        //took this off to get sound to work.
+        // event.preventDefault();
         console.log(searched);
         console.log(difficulty);
         // alert("Your motivation is " + searched + " and your difficulty is " + difficulty)
