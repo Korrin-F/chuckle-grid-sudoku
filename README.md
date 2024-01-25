@@ -1,4 +1,4 @@
-# Sudoku
+# Chuckle Grid Sudoku
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -34,26 +34,40 @@
 
 Find the deployed application here: 
 
-https:
+https://chuckle-grid-sudoku.netlify.app/game
 
-Welcome to <project name>! This project is
+![Logo](./src/assets/images/logo_transformed@0.25x.png)
+
+Introducing Chuckle Grid, your go-to Sudoku app with a delightful twist! Unlike ordinary Sudoku games, Chuckle Grid adds a dash of humor and excitement to your puzzling experience. Take a chance with the Gamble button for a shot at bonus points, a point deduction, or revealing tiles. 
+
+Need a boost? Hit the Motivation button for a dose of laughter with amusing memes or GIFs. And here's the cherry on top – each button comes with its own hilarious sound effect, making your Sudoku sessions not only challenging but downright entertaining. 
+
+Record your high scores to see your progress and play over and over again!
+
+Get ready to chuckle your way through Sudoku like never before!
+
 
 # User Story
 
-Do you like Sudoku? Would you like to play at different levels to impress your friends with your new-found skills? Play all the Sudoku you desire with this app - and have fun with the surprises along the way! Losing motivation? Click for a treat!
+AS a Sudoku Enthusiast,
+I WANT to play my favourite game with more functionality.
+SO THAT,  I can satisfy my desire to experience new kinds of Sudoku.
+
 
 Features:
-- Responsive Design: The game ...
-- Skills - A comprehensive list of the skills used is
-- Pages and features  
-- 
-- profiles in order to ontact me via these methods. 
+- Colourful sudoku game with extra features.
+- Responsive Design: The game can be played on any size screen.
+- Sound effects on buttons and changing gifs for interest.
+- A high scores page to record and compare your scores (with cool music at the end!).
+- Play the game at 3 different levels.
+
+### Motivation
+
+The motivation behind this project was to create a Sudoku game that could also be entertaining.
 
 ### Challenges
 
-We planned using a wireframe 
 
-![Wireframe](./src/assets/images/Wireframe.png)
 
 ### Credit
 
@@ -66,10 +80,10 @@ Installation:
 3. Install dependencies: npm install
 4. Start the development server: npm start
 
-Visit http://localhost:3000 to view the app in your browser.
+Visit http://localhost:<#number> to view the app in your browser.
 
 **Dependencies:**
-//need to edit
+
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "axios": "^1.6.5",
