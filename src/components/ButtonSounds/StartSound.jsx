@@ -11,5 +11,4 @@ const StartSound = ({ playSound }) => {
 
   return null;
 };
-
 export default StartSound;

@@ -1,13 +1,13 @@
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Form from 'react-bootstrap/Form';
 import ChooseDifficulty from './ChooseDifficulty';
 import EnterMotivation from './EnterMotivation';
-import { useState } from 'react';
 import SubmitButton from './SubmitButton';
 import { useNavigate } from 'react-router-dom';
 import Stack from 'react-bootstrap/Stack';
+import StartSound from '../ButtonSounds/StartSound';
 
 const styles = {
     headers: {
