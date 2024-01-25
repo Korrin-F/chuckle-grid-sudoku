@@ -9,12 +9,15 @@ function UnderGameBoard(props) {
   return (
         // <Container className="mt-4 mb-5">
             <Row className="justify-content-center mb-5">
-                <Col className='d-flex flex-col justify-content-start col-3'>
-                    <GambleButton score={score} updateScore={updateScore} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
+                <Col className='d-flex flex-col justify-content-between col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 p-0'>
+                    {/* <Row className='justify-content-center'> */}
+                        <GambleButton score={score} updateScore={updateScore} updateSudokuBoard={updateSudokuBoard} sudokuBoard={sudokuBoard} solution={solution}/>
+                        <MotivationButton />
+                    {/* </Row> */}
                 </Col>
-                <Col className='d-flex flex-col justify-content-end col-3'>
+                {/* <Col className='d-flex flex-col justify-content-end col-3'>
                     <MotivationButton />
-                </Col>
+                </Col> */}
             </Row>
         // </Container>
   );
