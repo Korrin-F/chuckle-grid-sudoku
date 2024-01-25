@@ -15,6 +15,10 @@ const styles = {
     width: 300,
     height: 300,
   },
+  xmSmall: {
+    width: 375,
+    height: 375,
+  },
   small: {
     width: 500,
     height: 500,
@@ -39,7 +43,8 @@ function NewGrid(props) {
   const fontSize = screenWidth >= 576 ? "1.5rem" : "1rem";
   const gridStyles = {
     ...styles.global,
-    ...(screenWidth >= 576 ? styles.small : styles.xSmall)
+    ...(screenWidth >= 576 ? styles.small :
+      screenWidth >= 380 ? styles.xmSmall : styles.xSmall)
   }
 
   return (
