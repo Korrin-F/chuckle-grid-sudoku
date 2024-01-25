@@ -63,7 +63,7 @@ const MotivationButton = ({ setMotivation, motivation }) => {
       console.error('Error fetching gifs:', error);
     }
 
-    // Uncomment and adjust the code if you want to fetch an inspirational quote
+    // want to fetch an inspirational quote?
     /*
     try {
       const quoteResponse = await axios.get('YOUR_QUOTE_API_ENDPOINT');
@@ -95,14 +95,14 @@ const MotivationButton = ({ setMotivation, motivation }) => {
         Motivate Me
       </Button>
 
-      {/* Render MotivationModal based on showModal state */}
+      {/* renders MotivationModal on showModal state */}
       <MotivationModal
         showModal={showModal}
         closeModal={closeModal}
         gifUrl={gifUrls.length > 0 ? gifUrls[Math.floor(Math.random() * gifUrls.length)] : ''}
         quote={quote}
       />
-       {/* Add MotivationSound component */}
+       {/* adds MotivationSound component */}
        <MotivationSound playSound={showModal} />
     </>
   );

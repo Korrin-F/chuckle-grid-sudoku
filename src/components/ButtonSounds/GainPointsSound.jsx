@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import GainPointsSoundFile from '../../sounds/winpoints.mp3';
+import GainPointsSoundFile from '../../sounds/yes.mp3';
 
 const GainPointsSound = ({ playSound }) => {
   useEffect(() => {
