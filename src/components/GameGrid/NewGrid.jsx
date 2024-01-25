@@ -32,20 +32,23 @@ function NewGrid(props) {
   };
 
   useEffect(() => {
-    console.log("Sudoku Board Updated:", sudokuBoard);
-    console.log("Solution:", solution);
-    // ... rest of your code
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
+  }, []);
 
+  useEffect(() => {
+    console.log("Sudoku Board Updated:", sudokuBoard);
+    console.log("Solution:", solution);
+ 
   }, [sudokuBoard, solution]);
 
   if (sudokuBoard.length === 0) {
     return null;
   }
+
   const fontSize = screenWidth >= 576 ? "1.5rem" : "1rem";
   const gridStyles = {
     ...styles.global,

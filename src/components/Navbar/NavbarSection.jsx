@@ -60,10 +60,8 @@ const logo = {
 
 function NavbarSection() {
 
-  // const location = useLocation();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  // const [logoStyle, setLogoStyle] = useState('');
-  // let newLogoStyle = {};
+
 
   const handleResize = () => {
     setScreenWidth(window.innerWidth);
