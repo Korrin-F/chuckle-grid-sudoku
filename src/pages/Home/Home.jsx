@@ -10,7 +10,7 @@ const styles = {
 function Home(){
   return (
     <>
-    <Container fluid className="pt-5 flex-grow-1" style={styles}>
+    <Container fluid className="pt-5 pb-5 flex-grow-1" style={styles}>
       <Stack direction="vertical" gap={3} className="justify-content-center">
         <HomeHeader />
         <Form />

@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import StartSound from '../ButtonSounds/StartSound';
 
 function SubmitButton(props) {
-  const { handleFormSubmit, style } = props;
+  const { handleFormSubmit, style, name } = props;
   const [playSound, setPlaySound] = useState(false);
 
   const handleButtonClick = () => {
@@ -31,16 +31,16 @@ function SubmitButton(props) {
   return (
     <>
       <Button
-        className="m-auto mt-2"
-        variant="success"
+        className="m-auto mt-2 mb-4"
         onClick={handleButtonClick}
         size="lg"
         style={style}
       >
-        New Game
+       {name} 
       </Button>
     </>
   );
+
 }
 
 export default SubmitButton;

@@ -3,6 +3,17 @@ import Button from 'react-bootstrap/Button';
 import NewGame from '../../pages/Game/NewGame';
 import EndGameSound from '../ButtonSounds/EndGameSound';
 
+const style = {
+  backgroundColor: "var(--yellow)",
+  borderRadius: "1rem",
+  border: "outset 0.5rem var(--yellow)",
+  boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
+  color: "black",
+  fontFamily: "var(--fontTwo)",
+  width: "max-content"
+}
+
+
 function SolutionButton(props) {
   const { sudokuBoard, updateSudokuBoard, solution } = props;
   const [show, setShow] = useState(false);
@@ -17,15 +28,7 @@ function SolutionButton(props) {
     handleShow();
   };
 
-  const style = {
-    backgroundColor: "var(--yellow)",
-    borderRadius: "1rem",
-    border: "outset 0.5rem var(--yellow)",
-    boxShadow: "inset 0 0 1rem var(--shadow), 0 -2px .75rem var(--shadow-teal)",
-    color: "black",
-    fontFamily: "var(--fontThree)",
-    width: "max-content"
-  }
+
 
   return (
     <>

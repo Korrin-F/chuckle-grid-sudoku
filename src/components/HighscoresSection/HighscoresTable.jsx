@@ -1,6 +1,18 @@
 
 import Table from 'react-bootstrap/Table';
 
+const styles = {
+  headers: {
+      fontFamily: "var(--fontThree)",
+      fontSize: "1.5rem",
+      borderBottom: "thick solid var(--orange)"
+  },
+  data: {
+      fontFamily: "var(--fontThree)",
+      fontSize: "1.25rem",
+  }
+}
+
 function HighScoresTable() {
 
     // Function to get high scores from local storage
@@ -14,12 +26,13 @@ function HighScoresTable() {
         }
     };
 
+    
 
   return (
  
      <Table striped >
         <thead>
-          <tr>
+          <tr style={styles.headers}>
             <th>Name</th>
             <th>Score</th>
           </tr>
@@ -27,10 +40,10 @@ function HighScoresTable() {
         <tbody>
           {/* maybe dynamically generate rows based on highScores array/info */}
           {getHighScoresFromLocalStorage().map((score, index) => (
-              <tr key={index}>
-              <td>{score.name}</td>
-              <td>{score.score}</td>
-            </tr>
+              <tr key={index} style={styles.data}>
+                <td >{score.name}</td>
+                <td >{score.score}</td>
+              </tr>
           ))}
         </tbody>
       </Table>

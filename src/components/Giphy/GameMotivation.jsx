@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import MotivationSound from '../ButtonSounds/MotivationSound.jsx'; 
+import MotivationModal from '../Modals/MotivationModal.jsx';
 
 const style = {
   backgroundColor: "var(--pink)",
@@ -13,24 +14,6 @@ const style = {
   width: "max-content"
 }
 
-const MotivationModal = ({ showModal, closeModal, gifUrl, quote }) => (
-  <div className={`modal fade ${showModal ? 'show' : ''}`} id="motivationModal" tabIndex={-1} role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
-    <div className="modal-dialog" role="document">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">Motivation Modal</h5>
-          <button type="button" className="close btn" onClick={closeModal} aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div className="modal-body">
-          {gifUrl && <img style={{ maxWidth: '100%', height: 'auto' }} src={gifUrl} alt="Motivational Gif" />}
-          {quote && <div>{quote}</div>}
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 
 const MotivationButton = ({ setMotivation, motivation }) => {
@@ -110,10 +93,7 @@ const MotivationButton = ({ setMotivation, motivation }) => {
 
 const GameMotivation = ({ setMotivation, motivation }) => {
   return (
-    <div>
-      {/* Include MotivationButton and MotivationModal */}
       <MotivationButton setMotivation={setMotivation} motivation={motivation} />
-    </div>
   );
 };
 

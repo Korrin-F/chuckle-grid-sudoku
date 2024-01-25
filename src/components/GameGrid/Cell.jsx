@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Cell(props) {
-  const { id, value,sudokuBoard, updateSudokuBoard } = props;
+  const { id, value,sudokuBoard, updateSudokuBoard, fontSize } = props;
 
   const handleInputChange = (event) => {
     const newInputValue = event.target.value.slice(0, 1);
@@ -20,9 +20,12 @@ function Cell(props) {
 
   const handleBorderStyle = (id) => {
     
-    const thick = "outset  thick var(--orange";
-    const medium = "outset medium  var(--orange)";
-    const thin = "outset thin var(--light-grey)";
+    const thick = "inset  thick var(--orange";
+    const medium = "inset medium  var(--orange)";
+    const thin = "inset thin var(--light-grey)";
+    // const thick = "thick solid var(--orange";
+    // const medium = "medium  solid var(--orange)";
+    // const thin = "thin solid var(--light-grey)";
 
     let top = thin;
     let right = thin;
@@ -81,14 +84,16 @@ function Cell(props) {
       const backgroundColor = handleBackgroundColor();
       return {
         display: 'block',
-        fontSize: '1.5rem',
+        fontSize: fontSize,
+        fontFamily: 'var(--fontFour)',
         lineHeight: 'auto',
         borderTop: borderStyle[0],
         borderRight: borderStyle[1],
         borderBottom: borderStyle[2],
         borderLeft: borderStyle[3],
         backgroundColor: backgroundColor,
-        borderRadius: 0
+        borderRadius: 0,
+        padding: 0,
       }
   }
 
