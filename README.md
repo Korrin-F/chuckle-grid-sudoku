@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![top language badge](https://img.shields.io/github/languages/top/korrin-f/chuckle-grid-sudoku)         
+
 ### Contact Information
 
 #### Caroline 
@@ -11,8 +13,8 @@
 
 #### Korrin
 
-- **GitHub:** []()
-- **Email:** 
+- **GitHub:** [Korrin-F](https://github.com/Korrin-F)
+- **LinkedIn:** [korrin-franklin](https://www.linkedin.com/in/korrin-franklin/) 
 
 #### Gabriel
 
