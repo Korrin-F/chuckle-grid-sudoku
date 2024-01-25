@@ -16,8 +16,8 @@
 
 #### Gabriel
 
-- **GitHub:** []()
-- **Email:** 
+- **GitHub:** https://github.com/M4r1aN24
+- **Email:** https://www.linkedin.com/in/gabriel-pamfil-28a449236/
 
 
 
